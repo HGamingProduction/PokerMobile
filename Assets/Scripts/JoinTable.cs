@@ -52,6 +52,8 @@ public class JoinTable : MonoBehaviour
     public static string ActionTypeMy;
     public static string ActionTypeOther;
     public static string WinsMessage;
+    public static int IdOther;
+    public static int AvaibleTableOther;
     /*public static string responce;*/
     private static void Ws_OnMessage(object sender, MessageEventArgs e)
     {
@@ -61,7 +63,7 @@ public class JoinTable : MonoBehaviour
         responce1111 = e.Data;
         /*responce = e.Data;*/
 
-
+        
         var currency = JsonConvert.DeserializeObject<Root1>(responce11);
         int a = 0;
         int i = 0;
@@ -167,6 +169,17 @@ public class JoinTable : MonoBehaviour
         {
             AvaibleOnTable = "Exception";
         }*/
+
+
+
+        IdOther = a;
+
+
+
+
+
+
+
         ActionTypeOther = Convert.ToString(currency.seats[a].lastActionType);
         if (currency.seats[a] == null)
         {
@@ -337,10 +350,66 @@ public class JoinTable : MonoBehaviour
         ws.OnMessage += Ws_OnMessage;
 
         ws.Connect();
+        var currency111 = JsonConvert.DeserializeObject<RootAction>(responce11);
 
-       /* var currency = JsonConvert.DeserializeObject<Root>(responce);
-        Debug.Log(currency.seats[0].userChips);
-        Debug.Log("123123");*/
+
+        if (currency111.game.state == "COMPLETED")
+        {
+
+            string? ioi = currency111.msg;
+            Debug.Log(ioi);
+            JoinTable.WinsMessage = Convert.ToString(ioi);
+
+
+
+
+        }
+
+
+        if (currency111.game.board == null)
+        {
+
+
+
+
+            CardOnBoardSuit = "Exception";
+            CardOnBoardSuit1 = "Exception";
+            CardOnBoardSuit2 = "Exception";
+            CardOnBoardSuit3 = "Exception";
+            CardOnBoardSuit4 = "Exception";
+        }
+        /*else (currency111.game.state != "COMPLETED"){
+
+       
+
+        }*/
+        var currency = JsonConvert.DeserializeObject<Root1>(responce11);
+        
+
+
+            if (currency.seats[IdOther].userId == null)
+            {
+
+
+
+            AvaibleTableOther = 1;
+
+
+
+            }
+        else
+        {
+
+
+            AvaibleTableOther = 0;
+
+        }
+
+
+
+        /* var currency = JsonConvert.DeserializeObject<Root>(responce);
+         Debug.Log(currency.seats[0].userChips);
+         Debug.Log("123123");*/
     }
 
 }
@@ -366,7 +435,7 @@ public class JoinTableAssetsMain : JoinTableAssets
     /*[Newtonsoft.Json.JsonProperty("Userchips")]
     public int userChips { get; set; }*/
 }
-public class Root1 
+public class Root1 : Seat1
 {
 
    
@@ -376,8 +445,8 @@ public class Root1
 
 public class Seat1 
 {
-   
-  
+
+    public string eventType { get; set; }
     public int? userId { get; set; }
     public int pokerTableId { get; set; }
     public int number { get; set; }
@@ -418,7 +487,7 @@ public class Game : Action
     public int bank { get; set; }
 }
 
-/*public class BestCombination
+public class BestCombination
 {
     public List<string> cards { get; set; }
     public string name { get; set; }
@@ -446,4 +515,4 @@ public class Winner
     public BestCombination bestCombination { get; set; }
     public int userId { get; set; }
     public int chips { get; set; }
-}*/
+}

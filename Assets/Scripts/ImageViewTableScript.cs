@@ -59,34 +59,34 @@ public class ImageViewTableScript : MonoBehaviour
                 TableCardImage.sprite = CardsClubs;
                 TableCardImage.gameObject.SetActive(true);
                 TableCardText.gameObject.SetActive(true);
-                Card1.gameObject.SetActive(true);
+                Card.gameObject.SetActive(true);
                 
                 break;
             case "d":
                 TableCardImage.sprite = CardsDiamond;
                 TableCardImage.gameObject.SetActive(true);
                 TableCardText.gameObject.SetActive(true);
-                Card1.gameObject.SetActive(true);
+                Card.gameObject.SetActive(true);
                 
                 break;
             case "h":
                 TableCardImage.sprite = CardsHearts;
                 TableCardImage.gameObject.SetActive(true);
                 TableCardText.gameObject.SetActive(true);
-                Card1.gameObject.SetActive(true);
+                Card.gameObject.SetActive(true);
                 
                 break;
             case "s":
                 TableCardImage.sprite = CardsSpades;
                 TableCardImage.gameObject.SetActive(true);
                 TableCardText.gameObject.SetActive(true);
-                Card1.gameObject.SetActive(true);
+                Card.gameObject.SetActive(true);
                 
                 break;
            default:
                 TableCardImage.gameObject.SetActive(false);
                 TableCardText.gameObject.SetActive(false);
-               
+                Card.gameObject.SetActive(false);
 
                 break;
         }
@@ -124,7 +124,7 @@ public class ImageViewTableScript : MonoBehaviour
             default:
                 TableCardImage1.gameObject.SetActive(false);
                 TableCardText1.gameObject.SetActive(false);
-              
+                Card1.gameObject.SetActive(false);
 
 
                 break;
@@ -135,35 +135,35 @@ public class ImageViewTableScript : MonoBehaviour
                 TableCardImage2.sprite = CardsClubs;
                 TableCardImage2.gameObject.SetActive(true);
                 TableCardText2.gameObject.SetActive(true);
-                Card1.gameObject.SetActive(true);
+                Card2.gameObject.SetActive(true);
               
                 break;
             case "d":
                 TableCardImage2.sprite = CardsDiamond;
                 TableCardImage2.gameObject.SetActive(true);
                 TableCardText2.gameObject.SetActive(true);
-                Card1.gameObject.SetActive(true);
+                Card2.gameObject.SetActive(true);
                
                 break;
             case "h":
                 TableCardImage2.sprite = CardsHearts;
                 TableCardImage2.gameObject.SetActive(true);
                 TableCardText2.gameObject.SetActive(true);
-                Card1.gameObject.SetActive(true);
+                Card2.gameObject.SetActive(true);
                
                 break;
             case "s":
                 TableCardImage2.sprite = CardsSpades;
                 TableCardImage2.gameObject.SetActive(true);
                 TableCardText2.gameObject.SetActive(true);
-                Card1.gameObject.SetActive(true);
+                Card2.gameObject.SetActive(true);
                
                 break;
             default:               
                 TableCardImage2.gameObject.SetActive(false);
                 TableCardText2.gameObject.SetActive(false);
-               
 
+                Card2.gameObject.SetActive(false);
 
                 break;
         }
@@ -173,34 +173,34 @@ public class ImageViewTableScript : MonoBehaviour
                 TableCardImage3.sprite = CardsClubs;
                 TableCardImage3.gameObject.SetActive(true);
                 TableCardText3.gameObject.SetActive(true);
-                Card1.gameObject.SetActive(true);
+                Card3.gameObject.SetActive(true);
                
                 break;
             case "d":
                 TableCardImage3.sprite = CardsDiamond;
                 TableCardImage3.gameObject.SetActive(true);
                 TableCardText3.gameObject.SetActive(true);
-                Card1.gameObject.SetActive(true);
+                Card3.gameObject.SetActive(true);
            
                 break;
             case "h":
                 TableCardImage3.sprite = CardsHearts;
                 TableCardImage3.gameObject.SetActive(true);
                 TableCardText3.gameObject.SetActive(true);
-                Card1.gameObject.SetActive(true);
+                Card3.gameObject.SetActive(true);
                 
                 break;
             case "s":
                 TableCardImage3.sprite = CardsSpades;
                 TableCardImage3.gameObject.SetActive(true);
                 TableCardText3.gameObject.SetActive(true);
-                Card1.gameObject.SetActive(true);
+                Card3.gameObject.SetActive(true);
                
                 break;
             default:
                 TableCardImage3.gameObject.SetActive(false);
                 TableCardText3.gameObject.SetActive(false);
-
+                Card3.gameObject.SetActive(false);
                 break;
         }
         switch (JoinTable.CardOnBoardSuit4)
@@ -209,34 +209,34 @@ public class ImageViewTableScript : MonoBehaviour
                 TableCardImage4.sprite = CardsClubs;
                 TableCardImage4.gameObject.SetActive(true);
                 TableCardText4.gameObject.SetActive(true);
-                Card1.gameObject.SetActive(true);
+                Card4.gameObject.SetActive(true);
            
                 break;
             case "d":
                 TableCardImage4.sprite = CardsDiamond;
                 TableCardImage4.gameObject.SetActive(true);
                 TableCardText4.gameObject.SetActive(true);
-                Card1.gameObject.SetActive(true);
+                Card4.gameObject.SetActive(true);
                
                 break;
             case "h":
                 TableCardImage4.sprite = CardsHearts;
                 TableCardImage4.gameObject.SetActive(true);
                 TableCardText4.gameObject.SetActive(true);
-                Card1.gameObject.SetActive(true);
+                Card4.gameObject.SetActive(true);
                
                 break;
             case "s":
                 TableCardImage4.sprite = CardsSpades;
                 TableCardImage4.gameObject.SetActive(true);
                 TableCardText4.gameObject.SetActive(true);
-                Card1.gameObject.SetActive(true);
+                Card4.gameObject.SetActive(true);
                 
                 break;
             default:
                 TableCardImage4.gameObject.SetActive(false);
                 TableCardText4.gameObject.SetActive(false);
-
+                Card4.gameObject.SetActive(false);
                 break;
         }
 
