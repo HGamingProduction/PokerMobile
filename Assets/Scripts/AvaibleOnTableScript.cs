@@ -32,7 +32,7 @@ public class AvaibleOnTableScript : MonoBehaviour
     {
 
 
-        if (JoinTable.AvaibleTableOther == 1)
+        if (JoinTable.AvaibleTableOther == 0)
         {
 
             PrefabPeopleOther.gameObject.SetActive(false);
@@ -43,7 +43,7 @@ public class AvaibleOnTableScript : MonoBehaviour
         }
 
 
-        if (JoinTable.AvaibleTableOther == 0)
+        if (JoinTable.AvaibleTableOther == 1)
         {
 
             PrefabPeopleOther.gameObject.SetActive(true);
