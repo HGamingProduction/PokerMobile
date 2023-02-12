@@ -54,6 +54,8 @@ public class JoinTable : MonoBehaviour
     public static string WinsMessage;
     public static int IdOther;
     public static int AvaibleTableOther;
+    public static int MyGlobalAvaibleActions;
+    public static int FirstGlobalAvaibleActions;
     /*public static string responce;*/
     private static void Ws_OnMessage(object sender, MessageEventArgs e)
     {
@@ -88,7 +90,18 @@ public class JoinTable : MonoBehaviour
             }
 
         }
-        ActionTypeMy = Convert.ToString(currency.seats[i].lastActionType);
+        IdOther = i;
+        if (currency.seats[i].lastActionType == null)
+        {
+
+            ActionTypeMy = "NUll";
+
+        }
+        else
+        {
+            ActionTypeMy = Convert.ToString(currency.seats[i].lastActionType);
+        }
+        Debug.Log(currency.seats[i].lastActionType);
         /*Debug.Log(currency.seats[b].userChips);*/
         NumberChips = currency.seats[b].userChips;
         CurrentBet = currency.seats[b].current_bet;
@@ -172,15 +185,52 @@ public class JoinTable : MonoBehaviour
 
 
 
-        IdOther = a;
+        
+
+
+        if (currency.seats[i].availableActions == null)
+        {
+
+            MyGlobalAvaibleActions = 0;
+
+        }
+        if (currency.seats[i].availableActions != null)
+        {
+
+
+            MyGlobalAvaibleActions = 1;
 
 
 
+        }
+
+        if (currency.seats[a].availableActions == null)
+        {
+
+            FirstGlobalAvaibleActions = 0;
+
+        }
+        if (currency.seats[a].availableActions != null)
+        {
+
+
+            FirstGlobalAvaibleActions = 1;
 
 
 
+        }
+        if (currency.seats[a].lastActionType == null)
+        {
 
-        ActionTypeOther = Convert.ToString(currency.seats[a].lastActionType);
+            ActionTypeOther = "NUll";
+
+        }
+        else
+        {
+            ActionTypeOther = Convert.ToString(currency.seats[a].lastActionType);
+        }
+        
+        Debug.Log(ActionTypeOther);
         if (currency.seats[a] == null)
         {
 
@@ -384,27 +434,27 @@ public class JoinTable : MonoBehaviour
 
         }*/
         var currency = JsonConvert.DeserializeObject<Root1>(responce11);
-        
-
-
-            if (currency.seats[IdOther].userId == null)
+        int l = 0;
+        while (l < 4)
+                {
+            if (currency.seats[l].userId == null || IdOther == l)
             {
 
 
 
-            AvaibleTableOther = 1;
+                AvaibleTableOther = 0;
+
+                l++;
+
+            }           
+            else
+            {
 
 
-
+                AvaibleTableOther = 1;
+                break;
             }
-        else
-        {
-
-
-            AvaibleTableOther = 0;
-
         }
-
 
 
         /* var currency = JsonConvert.DeserializeObject<Root>(responce);
