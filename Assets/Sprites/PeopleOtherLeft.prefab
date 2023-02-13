@@ -97,7 +97,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7516516953273317410
 RectTransform:
   m_ObjectHideFlags: 0
@@ -254,7 +254,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7221369481796644802
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1087,6 +1087,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LastActionText: {fileID: 0}
   LastActionTextOther: {fileID: 3239758129570048092}
+  LastActionTypeMy: {fileID: 0}
+  LastActionTypeOther: {fileID: 0}
 --- !u!114 &3239758129570048092 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8402023628150901845, guid: 630921687b47da34bb00d22e9b5ddccc, type: 3}

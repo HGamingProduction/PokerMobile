@@ -17,16 +17,54 @@ public class LastActonTypeScript : MonoBehaviour
 {
     public Text LastActionText;
     public Text LastActionTextOther;
+    public GameObject LastActionTypeMy;
+    public GameObject LastActionTypeOther;
     // Start is called before the first frame update
     void Start()
     {
-        
+        LastActionTypeMy.gameObject.SetActive(false);
+        LastActionTypeOther.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        LastActionText.text = JoinTable.ActionTypeMy;
-        LastActionTextOther.text = JoinTable.ActionTypeOther;
+
+        if (JoinTable.ActionTypeMy == "NUll")
+        {
+            LastActionTypeMy.gameObject.SetActive(false);
+            
+
+        }
+
+        if (JoinTable.ActionTypeMy != "NUll")
+        {
+            LastActionTypeMy.gameObject.SetActive(true);
+            
+            LastActionText.text = JoinTable.ActionTypeMy;
+            
+
+        }
+        if (JoinTable.ActionTypeOther == "NUll")
+        {
+            LastActionTypeOther.gameObject.SetActive(false);
+
+
+        }
+
+        if (JoinTable.ActionTypeOther != "NUll")
+        {
+            LastActionTypeOther.gameObject.SetActive(true);
+
+            LastActionTextOther.text = JoinTable.ActionTypeOther;
+
+
+        }
+
+
+
+       
+        
+
     }
 }
