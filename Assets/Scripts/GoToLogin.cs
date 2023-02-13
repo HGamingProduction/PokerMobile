@@ -15,11 +15,8 @@ using UnityEngine.SceneManagement;
 
 public class GoToLogin : MonoBehaviour
 {
-
     public void GoToLogins()
     {
         SceneManager.LoadScene(0);
     }
-
-
 }
