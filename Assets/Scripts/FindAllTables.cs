@@ -15,18 +15,24 @@ using UnityEngine.SceneManagement;
 
 public class FindAllTables : MonoBehaviour
 {
+    public Text NumberOfEnemy;
+    public static string responses1;
     private static void Ws_OnMessage(object sender, MessageEventArgs e)
     {
         Debug.Log("Open1999999: " + e.Data);
+        responses1 = e.Data;
+
+
+
     }
-    
-    public void Start()
+
+    void Start()
     {
-        WebSocket ws = new WebSocket(Glob.websocketurl);   
-        
+        WebSocket ws = new WebSocket(Glob.websocketurl);
+
         ws.OnMessage += Ws_OnMessage;
 
-         ws.Connect();
+        ws.Connect();
 
         var jsona = new Jsonaa1
         {
@@ -36,9 +42,44 @@ public class FindAllTables : MonoBehaviour
 
         string message = JsonConvert.SerializeObject(jsona);
 
-        ws.Send(message);       
+        ws.Send(message);
 
-        
+
+
+
+    }
+
+    void Update()
+    {
+        var CurrencyFindAll = JsonConvert.DeserializeObject<Root2>(responses1);
+        int i = 0;
+        int a = 0;
+        int result = 0;
+        if (CurrencyFindAll.pokerTables.items[0].id == 1)
+        {
+            i = CurrencyFindAll.pokerTables.items[0].seatsNumber;
+            a = CurrencyFindAll.pokerTables.items[0].emptySeatsNumber;
+            result = i - a;
+
+
+            NumberOfEnemy.text = Convert.ToString(result + "/4");
+
+
+
+
+        }
+
+        if (CurrencyFindAll.pokerTables.items[1].id == 1)
+        {
+            i = CurrencyFindAll.pokerTables.items[1].seatsNumber;
+            a = CurrencyFindAll.pokerTables.items[1].emptySeatsNumber;
+            result = i - a;
+
+
+            NumberOfEnemy.text = Convert.ToString(result + "/4");
+        }
+
+
 
 
     }
@@ -60,4 +101,27 @@ public class Jsonaa1 : Jsona1
 
     public int count { get; set; }
 
+}
+public class Item
+{
+    public int id { get; set; }
+    public int seatsNumber { get; set; }
+    public int smallBlind { get; set; }
+    public int bigBlind { get; set; }
+    public int emptySeatsNumber { get; set; }
+    public object creatorId { get; set; }
+}
+
+public class PokerTables
+{
+    public List<Item> items { get; set; }
+    public int total { get; set; }
+    public int pages { get; set; }
+}
+
+public class Root2
+{
+    public string eventType { get; set; }
+    public string msg { get; set; }
+    public PokerTables pokerTables { get; set; }
 }
