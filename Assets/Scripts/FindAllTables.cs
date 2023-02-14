@@ -17,6 +17,7 @@ public class FindAllTables : MonoBehaviour
 {
     public Text NumberOfEnemy;
     public static string responses1;
+    public static int TotalTables;
     private static void Ws_OnMessage(object sender, MessageEventArgs e)
     {
         Debug.Log("Open1999999: " + e.Data);
@@ -80,7 +81,7 @@ public class FindAllTables : MonoBehaviour
         }
 
 
-
+        TotalTables = CurrencyFindAll.pokerTables.total;
 
     }
 
@@ -121,6 +122,7 @@ public class PokerTables
 
 public class Root2
 {
+    public int total { get; set; }
     public string eventType { get; set; }
     public string msg { get; set; }
     public PokerTables pokerTables { get; set; }
