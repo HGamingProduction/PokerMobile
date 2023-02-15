@@ -18,6 +18,7 @@ public class CreateTablesScripts : MonoBehaviour
     public GameObject Canvas; //Основний Canvas чи куди закинути об'єкт
     public GameObject Tabless; // Створюємий об'єкт;
     public GameObject scrip; //Обє'кт з скриптом на приєднання до столів
+    public RectTransform rectTransform;
     void Start()
     {
         Glob.TotalTables = 0;
@@ -27,22 +28,26 @@ public class CreateTablesScripts : MonoBehaviour
     {
         if (Glob.TotalTables == 0)
         {
+            GameObject _canvas = Canvas;
             GameObject _delta = Tabless;
-            for (int i = 0; i < FindAllTables.TotalTables; i++)
+            for (int i = 0; i < 10/*FindAllTables.TotalTables*/; i++)
             {
                 int index = 3+i; //Положення об'єкта
                 int yCoord = -150;
                 int yCoord2 = -250;
+                int yCoord3 = 370;
                 var cmp = scrip.GetComponent<JoinTable>(); //Отримати скрипт який знаходиться в об'єкті
-
+                rectTransform = _canvas.GetComponent<RectTransform>(); //Отримати компонент RectTransform який знаходиться в 
                 _delta = Instantiate(Tabless) as GameObject;
                 if (i == 0)
                 {
                     _delta.transform.position = transform.position + new Vector3(0, yCoord, 0);  //Створити об'єкт столів на дефолтних координатах
+                    rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, rectTransform.sizeDelta.y + yCoord3);
                 }
                 else
                 {
                     _delta.transform.position = transform.position + new Vector3(0, yCoord + (yCoord2 * i), 0); //Створити об'єкти столів на нижчих координатах ніж попередній стіл
+                    rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, rectTransform.sizeDelta.y + (yCoord2 * -1));
                 }
                 _delta.transform.SetParent(Canvas.transform, false);
                 _delta.transform.SetSiblingIndex(index); //SetAsLastSibling() для того чтобы сделать объект "ближним" в иерархии или SetAsFirstSibling() наоборот.
