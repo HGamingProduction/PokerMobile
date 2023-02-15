@@ -30,7 +30,7 @@ public class CreateTablesScripts : MonoBehaviour
         {
             GameObject _canvas = Canvas;
             GameObject _delta = Tabless;
-            for (int i = 0; i < 10/*FindAllTables.TotalTables*/; i++)
+            for (int i = 0; i < FindAllTables.TotalTables; i++)
             {
                 int index = 3+i; //Положення об'єкта
                 int yCoord = -150;
