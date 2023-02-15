@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Register.unity
     guid: 342f22bb618873e4ebed1dd17f2c941b
+  - enabled: 1
+    path: Assets/Scenes/CreateTable.unity
+    guid: a9ece38d4c946e64a805cc89aad4c382
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 73ddc63e9617c8240829f641e7e1d761, type: 2}
     com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: d85b80458fa003e4d8aed3a534a51309, type: 2}

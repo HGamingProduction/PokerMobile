@@ -1188,7 +1188,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 73.24048, y: -23.690186}
-  m_SizeDelta: {x: 119.72, y: 52.619995}
+  m_SizeDelta: {x: 138.75, y: 58.06}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &361817489
 MonoBehaviour:
@@ -5985,8 +5985,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -1.819e-12, y: -14.400024}
-  m_SizeDelta: {x: 161.83, y: 80.380005}
+  m_AnchoredPosition: {x: -2.6983, y: -14.400024}
+  m_SizeDelta: {x: 301.32, y: 80.38}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2054804326
 MonoBehaviour:
@@ -6014,14 +6014,14 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 20
-    m_MaxSize: 60
+    m_MaxSize: 70
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Table
+  m_Text: "\u0421\u0442\u0456\u043B"
 --- !u!222 &2054804327
 CanvasRenderer:
   m_ObjectHideFlags: 0
