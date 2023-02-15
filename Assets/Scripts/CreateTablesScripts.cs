@@ -26,6 +26,10 @@ public class CreateTablesScripts : MonoBehaviour
 
     void Update()
     {
+        for (int i = 0; i < FindAllTables.TotalTables; i++)
+        {
+            Debug.Log(FindAllTables.IDTables[i]);
+        }
         if (Glob.TotalTables == 0)
         {
             GameObject _canvas = Canvas;

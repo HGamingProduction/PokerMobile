@@ -18,6 +18,7 @@ public class FindAllTables : MonoBehaviour
     public Text NumberOfEnemy;
     public static string responses1;
     public static int TotalTables;
+    public static int[] IDTables = new int[9999];
     private static void Ws_OnMessage(object sender, MessageEventArgs e)
     {
         Debug.Log("Open1999999: " + e.Data);
@@ -62,12 +63,7 @@ public class FindAllTables : MonoBehaviour
             a = CurrencyFindAll.pokerTables.items[0].emptySeatsNumber;
             result = i - a;
 
-
             NumberOfEnemy.text = Convert.ToString(result + "/4");
-
-
-
-
         }
 
         if (CurrencyFindAll.pokerTables.items[1].id == 1)
@@ -76,12 +72,19 @@ public class FindAllTables : MonoBehaviour
             a = CurrencyFindAll.pokerTables.items[1].emptySeatsNumber;
             result = i - a;
 
-
             NumberOfEnemy.text = Convert.ToString(result + "/4");
         }
-
-
         TotalTables = CurrencyFindAll.pokerTables.total;
+
+
+        int j = CurrencyFindAll.pokerTables.total;
+        int ii = 0;
+        while (ii < j)
+        {
+            IDTables[ii] = CurrencyFindAll.pokerTables.items[ii].id;
+            ii++;
+        }
+
 
     }
 
