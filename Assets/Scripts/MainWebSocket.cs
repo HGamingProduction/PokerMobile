@@ -12,15 +12,11 @@ using UnityEngine.UI;
 using Newtonsoft.Json;
 using System.Net.Http;
 using UnityEngine.SceneManagement;
-
-public class Glob : MonoBehaviour
+public class MainWebSocket : MonoBehaviour
 {
-    public static string websocketurl;
 
-    public static string POKET;
-    public static Timer timer;
-    public static TimerCallback tm;
-    public static int num = 0;
-    public static int GlobalId;
-    /* public static int? NumberChips;*/
+    public static WebSocket ws = new WebSocket(Glob.websocketurl);
+
+    // Start is called before the first frame update
+    
 }

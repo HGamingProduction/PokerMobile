@@ -16,7 +16,7 @@ using UnityEngine.SceneManagement;
 
 public class RaiseButtonScript : MonoBehaviour
 {
-    public InputField betpoker;
+    
    /* public static string responce1;
     public static int a = 0;
     public static int i = 0;
@@ -51,22 +51,22 @@ public class RaiseButtonScript : MonoBehaviour
     public async void RaiseTableAction()
     {
 
-        int betinfo = Int32.Parse(betpoker.text);
-        WebSocket ws = new WebSocket(Glob.websocketurl);
+        
 
-        ws.OnMessage += Ws_OnMessage;
 
-        ws.Connect();
+        MainWebSocket.ws.OnMessage += Ws_OnMessage;
+
+        MainWebSocket.ws.Connect();
 
         var jsona = new RaiseTableAssetsMain
         {
             eventType = "action",
-            action = new RaiseTableAssetsMain { type = "raise", bet = betinfo }
+            action = new RaiseTableAssetsMain { type = "raise", bet = RaiseButtonPopUpScript.ValueBet }
         };
 
         string message = JsonConvert.SerializeObject(jsona);
 
-        ws.Send(message);
+        MainWebSocket.ws.Send(message);
 
 
     }

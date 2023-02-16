@@ -23,11 +23,11 @@ public class CallButtonScript : MonoBehaviour
 
     public async void CallTableAction()
     {
-        WebSocket ws = new WebSocket(Glob.websocketurl);
 
-        ws.OnMessage += Ws_OnMessage;
 
-        ws.Connect();
+        MainWebSocket.ws.OnMessage += Ws_OnMessage;
+
+        MainWebSocket.ws.Connect();
 
         var jsona = new CallTableAssetsMain
         {
@@ -37,7 +37,7 @@ public class CallButtonScript : MonoBehaviour
 
         string message = JsonConvert.SerializeObject(jsona);
 
-        ws.Send(message);
+        MainWebSocket.ws.Send(message);
 
 
     }

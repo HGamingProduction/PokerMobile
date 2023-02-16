@@ -36,7 +36,7 @@ public class GameMoment : MonoBehaviour
                    i++;
                }
            }*/
-        var currency = JsonConvert.DeserializeObject<Root>(responce);
+        /*var currency = JsonConvert.DeserializeObject<Root>(responce);
         int a = 0;
         int i = 0;
         int b = 0;
@@ -65,18 +65,18 @@ public class GameMoment : MonoBehaviour
 
 
         Debug.Log("123123");
-
+*/
     }
      
     
     // Start is called before the first frame update
     void Start()
     {
-        WebSocket ws = new WebSocket(Glob.websocketurl);
 
-        ws.OnMessage += Ws_OnMessage;
 
-        ws.Connect();
+        MainWebSocket.ws.OnMessage += Ws_OnMessage;
+
+        MainWebSocket.ws.Connect();
 
        
     }

@@ -27,11 +27,11 @@ public class CheckButtonScript : MonoBehaviour
 
     public async void CheckTableAction()
     {
-        WebSocket ws = new WebSocket(Glob.websocketurl);
 
-        ws.OnMessage += Ws_OnMessage;
 
-        ws.Connect();
+        MainWebSocket.ws.OnMessage += Ws_OnMessage;
+
+        MainWebSocket.ws.Connect();
 
         var jsona = new CheckTableAssetsMain
         {
@@ -41,7 +41,7 @@ public class CheckButtonScript : MonoBehaviour
 
         string message = JsonConvert.SerializeObject(jsona);
 
-        ws.Send(message);
+        MainWebSocket.ws.Send(message);
 
 
     }
