@@ -26,17 +26,21 @@ public class CreateTablesScripts : MonoBehaviour
 
     void Update()
     {
+        /*Debug.Log("IDStart");
         for (int i = 0; i < FindAllTables.TotalTables; i++)
         {
             Debug.Log(FindAllTables.IDTables[i]);
         }
+        Debug.Log("IDEND");*/
         if (Glob.TotalTables == 0)
         {
             GameObject _canvas = Canvas;
             GameObject _delta = Tabless;
+            GameObject _delta2 = Tabless;
+            Text textId;
             for (int i = 0; i < FindAllTables.TotalTables; i++)
             {
-                int index = 3+i; //Положення об'єкта
+                int index = 3 + i; //Положення об'єкта
                 int yCoord = -150;
                 int yCoord2 = -250;
                 int yCoord3 = 370;
@@ -55,13 +59,23 @@ public class CreateTablesScripts : MonoBehaviour
                 }
                 _delta.transform.SetParent(Canvas.transform, false);
                 _delta.transform.SetSiblingIndex(index); //SetAsLastSibling() для того чтобы сделать объект "ближним" в иерархии или SetAsFirstSibling() наоборот.
+                _delta2 = _delta;
+                _delta2 = GameObject.FindWithTag("Player"); //Знаходить кнопку в якій тег "Player"
+                _delta2.transform.gameObject.tag = "Untagged"; //Змінює тег кнопки на "Finish"
+                textId = _delta2.GetComponent<Text>();
+                textId.text = Convert.ToString(FindAllTables.IDTables[i]);
                 _delta = GameObject.FindWithTag("GameController"); //Знаходить кнопку в якій тег "GameController"
                 _delta.transform.gameObject.tag = "Untagged"; //Змінює тег кнопки на "Untagged"
                 _delta.AddComponent<JoinTable>();  //Додає в кнопку компонент JoinTable який являється скриптом    ---- цю строку можна і не писати
                 Button btn = _delta.GetComponent<Button>();  //Додає в змінну btn (яка типу Button) компонент Button
                 btn.onClick.AddListener(cmp.JoinTablePoker); //Додає дію на onClick а саме нашу функції (JoinTablePoker) в скрипті (JoinTable)
+
+
+
+
                 Glob.TotalTables = 1;  //Дає змінній TotalTables (в якій 1-вже вивели столи, 0-ще не виводили столи)
             }
         }
     }
+
 }

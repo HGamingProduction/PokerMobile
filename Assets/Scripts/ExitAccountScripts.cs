@@ -37,6 +37,18 @@ public class ExitAccountScripts : MonoBehaviour
 
         SceneManager.LoadScene(0);
     }
+    public async void ScreenCreateTable()
+    {
+        SceneManager.LoadScene(4);
+    }
+    public async void ScreenTables()
+    {
+        SceneManager.LoadScene(1);
+    }
+    public async void ScreenProfile()
+    {
+        SceneManager.LoadScene(5);
+    }
 }
 public class ExitAssets
 {

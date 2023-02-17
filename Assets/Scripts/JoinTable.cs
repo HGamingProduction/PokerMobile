@@ -60,7 +60,8 @@ public class JoinTable : MonoBehaviour
     public static string? GameWinner;
     public static int MinRaiseBet;
     public static int EndGameWinner;
- 
+    public static string IdText;
+
     /*public static string responce;*/
     private static void Ws_OnMessage(object sender, MessageEventArgs e)
     {
@@ -597,30 +598,28 @@ public class JoinTable : MonoBehaviour
     // Start is called before the first frame update
     public async void JoinTablePoker()
     {
-       
-
-      
+        GameObject _delta;
+        Text textId;
+        int textIdInt = 0;
 
         MainWebSocket.ws.OnMessage += Ws_OnMessage;
-
         MainWebSocket.ws.Connect();
 
+
+        textIdInt = Convert.ToInt32(IdText);
+        Debug.Log(textIdInt);
         var jsona = new JoinTableAssetsMain
         {
             eventType = "join_table",
-            pokerTable = new JoinTableAssetsMain { id = 1 }
+            pokerTable = new JoinTableAssetsMain { id = textIdInt }
         };
 
-        string message = JsonConvert.SerializeObject(jsona);
 
+
+        string message = JsonConvert.SerializeObject(jsona);
         MainWebSocket.ws.Send(message);
 
-
-
         SceneManager.LoadScene(2);
-
-        
-
     }
    
 
