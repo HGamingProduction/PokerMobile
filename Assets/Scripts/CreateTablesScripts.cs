@@ -15,9 +15,9 @@ using UnityEngine.SceneManagement;
 
 public class CreateTablesScripts : MonoBehaviour
 {
-    public GameObject Canvas; //Основний Canvas чи куди закинути об'єкт
-    public GameObject Tabless; // Створюємий об'єкт;
-    public GameObject scrip; //Обє'кт з скриптом на приєднання до столів
+    public GameObject Canvas; //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ Canvas пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ'пїЅпїЅпїЅ
+    public GameObject Tabless; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ'пїЅпїЅпїЅ;
+    public GameObject scrip; //пїЅпїЅ'пїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
     public Text textSeats;
     public RectTransform rectTransform;
     void Start()
@@ -38,54 +38,54 @@ public class CreateTablesScripts : MonoBehaviour
             Text textNumber;
             for (int i = 0; i < FindAllTables.TotalTables; i++)
             {
-                int index = 3 + i; //Положення об'єкта
+                int index = 3 + i; //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ'пїЅпїЅпїЅпїЅ
                 int yCoord = -150;
                 int yCoord2 = -250;
                 int yCoord3 = 370;
                 int result = 0;
-                var cmp = scrip.GetComponent<JoinTable>(); //Отримати скрипт який знаходиться в об'єкті
-                rectTransform = _canvas.GetComponent<RectTransform>(); //Отримати компонент RectTransform який знаходиться в 
+                var cmp = scrip.GetComponent<JoinTable>(); //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅ'пїЅпїЅпїЅ
+                rectTransform = _canvas.GetComponent<RectTransform>(); //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ RectTransform пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ 
                 _delta = Instantiate(Tabless) as GameObject;
                 if (i == 0)
                 {
-                    _delta.transform.position = transform.position + new Vector3(0, yCoord, 0);  //Створити об'єкт столів на дефолтних координатах
+                    _delta.transform.position = transform.position + new Vector3(0, yCoord, 0);  //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ'пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                     rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, rectTransform.sizeDelta.y + yCoord3);
                 }
                 else
                 {
-                    _delta.transform.position = transform.position + new Vector3(0, yCoord + (yCoord2 * i), 0); //Створити об'єкти столів на нижчих координатах ніж попередній стіл
+                    _delta.transform.position = transform.position + new Vector3(0, yCoord + (yCoord2 * i), 0); //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ'пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ
                     rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, rectTransform.sizeDelta.y + (yCoord2 * -1));
                 }
                 _delta.transform.SetParent(Canvas.transform, false);
-                _delta.transform.SetSiblingIndex(index); //SetAsLastSibling() для того чтобы сделать объект "ближним" в иерархии или SetAsFirstSibling() наоборот.
+                _delta.transform.SetSiblingIndex(index); //SetAsLastSibling() пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ" пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ SetAsFirstSibling() пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.
                 _delta2 = _delta;
-                _delta2 = GameObject.FindWithTag("Player"); //Знаходить тег "Player"
-                _delta2.transform.gameObject.tag = "Untagged"; //Змінює тег на "Untagged"
+                _delta2 = GameObject.FindWithTag("Player"); //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ "Player"
+                _delta2.transform.gameObject.tag = "Untagged"; //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅ "Untagged"
                 textId = _delta2.GetComponent<Text>();
                 textId.text = Convert.ToString(FindAllTables.IDTables[i]);
                 _delta3 = _delta;
-                _delta3 = GameObject.FindWithTag("EditorOnly"); //Знаходить тег "EditorOnly"
-                _delta3.transform.gameObject.tag = "Untagged"; //Змінює тег на "Untagged"
+                _delta3 = GameObject.FindWithTag("EditorOnly"); //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ "EditorOnly"
+                _delta3.transform.gameObject.tag = "Untagged"; //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅ "Untagged"
                 textNumber = _delta3.GetComponent<Text>();
                 result = FindAllTables.CountSeatsInTable[i] - FindAllTables.CountEmptySeatsInTable[i];
                 textNumber.text = Convert.ToString(result + "/" + FindAllTables.CountSeatsInTable[i]); 
                 _buttonDelete = _delta;
-                _buttonDelete = GameObject.FindWithTag("Respawn"); //Знаходить тег "Respawn"
-                _buttonDelete.transform.gameObject.tag = "Untagged"; //Змінює тег на "Untagged"
+                _buttonDelete = GameObject.FindWithTag("Respawn"); //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ "Respawn"
+                _buttonDelete.transform.gameObject.tag = "Untagged"; //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅ "Untagged"
                 Button btns = _buttonDelete.GetComponent<Button>();
                 if (Glob.GlobalId == FindAllTables.CreatorTableId[i])
                 {
                     btns.interactable = true;
                 }
-                _delta = GameObject.FindWithTag("GameController"); //Знаходить кнопку в якій тег "GameController"
-                _delta.transform.gameObject.tag = "Untagged"; //Змінює тег кнопки на "Untagged"
-                _delta.AddComponent<JoinTable>();  //Додає в кнопку компонент JoinTable який являється скриптом    ---- цю строку можна і не писати
-                Button btn = _delta.GetComponent<Button>();  //Додає в змінну btn (яка типу Button) компонент Button
-                btn.onClick.AddListener(cmp.JoinTablePoker); //Додає дію на onClick а саме нашу функції (JoinTablePoker) в скрипті (JoinTable)
+                _delta = GameObject.FindWithTag("GameController"); //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅ пїЅпїЅпїЅ "GameController"
+                _delta.transform.gameObject.tag = "Untagged"; //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ "Untagged"
+                _delta.AddComponent<JoinTable>();  //пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ JoinTable пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ    ---- пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+                Button btn = _delta.GetComponent<Button>();  //пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ btn (пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ Button) пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ Button
+                btn.onClick.AddListener(cmp.JoinTablePoker); //пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅ onClick пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ (JoinTablePoker) пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ (JoinTable)
 
 
 
-                Glob.TotalTables = 1;  //Дає змінній TotalTables (в якій 1-вже вивели столи, 0-ще не виводили столи)
+                Glob.TotalTables = 1;  //пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ TotalTables (пїЅ пїЅпїЅпїЅ 1-пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, 0-пїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ)
             }
         }
     }
