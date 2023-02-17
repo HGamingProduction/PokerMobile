@@ -32,15 +32,54 @@ public class RaiseButtonPopUpScript : MonoBehaviour
         /*MenuRaiseImages.minValue = 5;
         MenuRaiseImages.maxValue = 1000;*/
 
-        
        
-             TextrLine.text = MenuRaiseImages.value + "/" + MenuRaiseImages.maxValue;
+
+        TextrLine.text = MenuRaiseImages.value + "/" + MenuRaiseImages.maxValue;
         ValueBet = Convert.ToInt32(MenuRaiseImages.value);
     }
 
 
+    public void MultiplyOneHalf()
+    {
 
-    
+        MenuRaiseImages.value = Convert.ToInt64(MenuRaiseImages.minValue * 1.5);
+        
+
+
+    }
+
+    public void MultiplyTwo()
+    {
+
+        MenuRaiseImages.value = Convert.ToInt64(MenuRaiseImages.minValue * 2);
+
+
+
+    }
+
+
+    public void MultiplyThree()
+    {
+
+        MenuRaiseImages.value = Convert.ToInt64(MenuRaiseImages.minValue * 3);
+
+
+
+    }
+
+    public void MultiplyAllIn()
+    {
+
+        MenuRaiseImages.value = Convert.ToInt64(JoinTable.NumberChips);
+
+
+
+    }
+
+
+
+
+
 }
 
 

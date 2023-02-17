@@ -29,7 +29,9 @@ public class FoldButton : MonoBehaviour
 
         ws.OnMessage += Ws_OnMessage;
 
-        ws.Connect();
+        MainWebSocket.ws.OnMessage += Ws_OnMessage;
+
+        MainWebSocket.ws.Connect();
 
         var jsona = new FoldTableAssetsMain
         {
@@ -39,7 +41,7 @@ public class FoldButton : MonoBehaviour
 
         string message = JsonConvert.SerializeObject(jsona);
 
-        ws.Send(message);
+        MainWebSocket.ws.Send(message);
 
         /*var currency = JsonConvert.DeserializeObject<FoldTableAssetsMain>(responcee);
         Debug.Log(currency.msg);*/

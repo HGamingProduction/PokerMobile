@@ -17,6 +17,13 @@ using UnityEngine.SceneManagement;
 public class JoinTable : MonoBehaviour
     
 {
+    public static string FirstCard;
+    public static string SecondCard;
+    public static string ThirdCard;
+    public static string FourthCard;
+    public static string FifthCard;
+    public static string PocketFirstCard;
+    public static string PocketSecondCard;
     public static int? NumberChips;
     public static int? NumberChipsTwo;
     public static int? CurrentBet;
@@ -24,6 +31,7 @@ public class JoinTable : MonoBehaviour
     public static string MyPocket;
     public static string MyPocket2;
     public static string responce11;
+    public static string responce22;
     public static string responce111;
     public static string responce1111;
     public static string CardOnTable1;
@@ -61,29 +69,230 @@ public class JoinTable : MonoBehaviour
     public static int MinRaiseBet;
     public static int EndGameWinner;
     public static string IdText;
+    public static string GlobalCardAction;
+    public static string GlobalCardAction2;
+    public static string GlobalCardAction3;
+    public static string GlobalCardAction4;
 
     /*public static string responce;*/
     private static void Ws_OnMessage(object sender, MessageEventArgs e)
     {
         Debug.Log("Open:11111 " + e.Data);
+        responce22 = e.Data;
         responce11 = e.Data;
         responce111 = e.Data;
         responce1111 = e.Data;
         /*responce = e.Data;*/
-
-        
+        var currency11 = JsonConvert.DeserializeObject<Action>(responce111);
+        var currencyWinner = JsonConvert.DeserializeObject<Winner>(responce22);
         var currency = JsonConvert.DeserializeObject<Root1>(responce11);
         var currencyy = JsonConvert.DeserializeObject<Action>(responce11);
         var currencyyy = JsonConvert.DeserializeObject<Root19>(responce1111);
+
+        if (currency.msg == "")
+        {
+           
+
+
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½@@@@@@");
+
+
+            /* if (currencyWinner.bestCombination.cards[0] == FirstCard || currencyWinner.bestCombination.cards[0] == SecondCard || currencyWinner.bestCombination.cards[0] == ThirdCard || currencyWinner.bestCombination.cards[0] == FourthCard || currencyWinner.bestCombination.cards[0] == FifthCard)
+             {
+
+                 Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?????? ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½");
+
+
+             }*/
+            if (currencyWinner.bestCombination.cards[0] == PocketFirstCard)
+            {
+                GlobalCardAction = "MyCardActionOne";
+            }
+            
+             if (currencyWinner.bestCombination.cards[0] == PocketSecondCard)
+            {
+                GlobalCardAction = "MyCardActionOneClone";
+            }
+            
+           if (currencyWinner.bestCombination.cards[0] == FirstCard)
+            {
+                GlobalCardAction = "CardActionOne";
+            }
+            
+            if (currencyWinner.bestCombination.cards[0] == SecondCard)
+            {
+                GlobalCardAction = "CardActionTwo";
+            }
+            
+            if (currencyWinner.bestCombination.cards[0] == ThirdCard)
+            {
+                GlobalCardAction = "CardActionThree";
+            }
+            
+            if (currencyWinner.bestCombination.cards[0] == FourthCard)
+            {
+                GlobalCardAction = "CardActionFour";
+            }
+            
+            if (currencyWinner.bestCombination.cards[0] == FifthCard)
+            {
+                GlobalCardAction = "CardActionFive";
+            }
+           
+
+
+
+
+            if (currencyWinner.bestCombination.cards[1] == PocketFirstCard)
+            {
+                GlobalCardAction2 = "MyCardActionOne2";
+            }
+           
+             if (currencyWinner.bestCombination.cards[1] == PocketSecondCard)
+            {
+                GlobalCardAction2 = "MyCardActionOne2Clone";
+            }
+           
+            if (currencyWinner.bestCombination.cards[1] == FirstCard)
+            {
+                GlobalCardAction2 = "CardActionOne2";
+            }
+           
+            if (currencyWinner.bestCombination.cards[1] == SecondCard)
+            {
+                GlobalCardAction2 = "CardActionTwo2";
+            }
+            
+            if (currencyWinner.bestCombination.cards[1] == ThirdCard)
+            {
+                GlobalCardAction2 = "CardActionThree2";
+            }
+            
+            if (currencyWinner.bestCombination.cards[1] == FourthCard)
+            {
+                GlobalCardAction2 = "CardActionFour2";
+            }
+           
+            if (currencyWinner.bestCombination.cards[1] == FifthCard)
+            {
+                GlobalCardAction2 = "CardActionFive2";
+            }
+
+
+
+
+
+            if (currencyWinner.bestCombination.cards[2] == PocketFirstCard)
+            {
+                GlobalCardAction3 = "MyCardActionOne3";
+            }
+          
+            if (currencyWinner.bestCombination.cards[2] == PocketSecondCard)
+            {
+                GlobalCardAction3 = "MyCardActionOneClone3";
+            }
+            
+          if (currencyWinner.bestCombination.cards[2] == FirstCard)
+            {
+                GlobalCardAction3 = "CardActionOne3";
+            }
+          
+           if (currencyWinner.bestCombination.cards[2] == SecondCard)
+            {
+                GlobalCardAction3 = "CardActionTwo3";
+            }
+            
+           if (currencyWinner.bestCombination.cards[2] == ThirdCard)
+            {
+                GlobalCardAction3 = "CardActionThree3";
+            }
+            
+           if (currencyWinner.bestCombination.cards[2] == FourthCard)
+            {
+                GlobalCardAction3 = "CardActionFour3";
+            }
+            
+           if (currencyWinner.bestCombination.cards[2] == FifthCard)
+            {
+                GlobalCardAction3 = "CardActionFive3";
+            }
+
+
+
+            if (currencyWinner.bestCombination.cards[3] == PocketFirstCard)
+            {
+                GlobalCardAction4 = "MyCardActionOne4";
+            }
+           
+            if (currencyWinner.bestCombination.cards[3] == PocketSecondCard)
+            {
+                GlobalCardAction4 = "MyCardActionOneClone4";
+            }
+           
+          if (currencyWinner.bestCombination.cards[3] == FirstCard)
+            {
+                GlobalCardAction4 = "CardActionOne4";
+            }
+            
+           if (currencyWinner.bestCombination.cards[3] == SecondCard)
+            {
+                GlobalCardAction4 = "CardActionTwo4";
+            }
+
+            if (currencyWinner.bestCombination.cards[3] == ThirdCard)
+            {
+                GlobalCardAction4 = "CardActionThree4";
+            }
+           
+            if (currencyWinner.bestCombination.cards[3] == FourthCard)
+            {
+                GlobalCardAction4 = "CardActionFour4";
+            }
+           
+            if (currencyWinner.bestCombination.cards[3] == FifthCard)
+            {
+                GlobalCardAction4 = "CardActionFive4";
+            }
+            /*else if (currencyWinner.bestCombination.cards[1] != FirstCard && currencyWinner.bestCombination.cards[1] != SecondCard && currencyWinner.bestCombination.cards[1] != ThirdCard && currencyWinner.bestCombination.cards[1] != FourthCard && currencyWinner.bestCombination.cards[1] != FifthCard && currencyWinner.bestCombination.cards[1] != PocketFirstCard && currencyWinner.bestCombination.cards[1] != PocketSecondCard)
+            {
+
+                GlobalCardAction2 = "SecondException2";
+
+            }*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+
+
+
         if (currency.eventType == "action")
         {
 
+
+
+            
+
+
+
             MinRaiseBet = currency.seats[IdOther].raiseMinBet;
 
-            Debug.Log("Ïðîèçîåøë ÀÊÒÈÎÍ");
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
         }
         if (currency.msg == "new game at the table #1 started")
         {
+            
             BankOnTable = currencyy.game.bank;
             NumberChips = currency.seats[IdOther].userChips;
             CurrentBet = currency.seats[IdOther].current_bet;
@@ -124,7 +333,7 @@ public class JoinTable : MonoBehaviour
 
             }
 
-            Debug.Log("Ïðîèçîåøë ÀÊÒÈÎÍ");
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
         }
 
 
@@ -135,14 +344,14 @@ public class JoinTable : MonoBehaviour
             
            
 
-            Debug.Log("Ïðîèçîåøë VTOROI START");
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ VTOROI START");
 
 
 
             if (currencyy.pocket[0] == null)
             {
 
-                Debug.Log("Ïðîèçîåøë ÑÒÀÐÒ ÃÅÉÌ  " + currencyy.pocket[0]);
+                Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  " + currencyy.pocket[0]);
                 Suit = "Exception";
                 SuitClon = "Exception";
             }
@@ -153,7 +362,7 @@ public class JoinTable : MonoBehaviour
                 foreach (char v in currencyy.pocket[0])
                 {
                     
-                    Debug.Log("Ïðîèçîåøë ÑÒÀÐÒ ÃÅÉÌ  " + currencyy.pocket[0]);
+                    Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  " + currencyy.pocket[0]);
                     Suit = Convert.ToString(v);
 
                 }
@@ -167,7 +376,7 @@ public class JoinTable : MonoBehaviour
 
             MyPocket = NumberCard;
 
-
+            PocketFirstCard = currencyy.pocket[0];
             if (currencyy.pocket[1] != null)
             {
                 foreach (char v in currencyy.pocket[1])
@@ -184,9 +393,9 @@ public class JoinTable : MonoBehaviour
             }
 
             MyPocket2 = NumberCardClon;
-            
+            PocketSecondCard = currencyy.pocket[1];
 
-            Debug.Log("Ïðîèçîåøë ÑÒÀÐÒ ÃÅÉÌ  " + currencyy.pocket[0]);
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  " + currencyy.pocket[0]);
             MinRaiseBet = currency.seats[IdOther].raiseMinBet;
             int l = 0;
             while (l < 4)
@@ -216,6 +425,7 @@ public class JoinTable : MonoBehaviour
         if (currency.eventType == "join_table")
         {
            
+
             int l = 0;
             while (l < 4)
             {
@@ -240,7 +450,7 @@ public class JoinTable : MonoBehaviour
 
             MinRaiseBet = currency.seats[IdOther].raiseMinBet;
           
-            Debug.Log("Ïðîèçîåøë ÆÎÈÍ ÃÅÉÌ");
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 
         }
         if (currency.eventType == "leave_table")
@@ -282,12 +492,15 @@ public class JoinTable : MonoBehaviour
 
 
 
-
-
-            Debug.Log("Ïðîèçîåøë Åíä ÃÅÉÌ");
+            GlobalCardAction = "FirstException";
+            GlobalCardAction2 = "SecondException2";
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 
         }
-        
+        GlobalCardAction = "FirstException";
+        GlobalCardAction2 = "SecondException2";
+        GlobalCardAction3 = "SecondException2";
+        GlobalCardAction4 = "SecondException2";
         int a = 0;
         int i = 0;
         int b = 0;
@@ -331,7 +544,7 @@ public class JoinTable : MonoBehaviour
         /*Debug.Log(NumberChips);*/
         /* if (currencyy.pocket[0] == null)
          {
-             Debug.Log("Ïðîèçîåøë ÑÒÀÐÒ ÃÅÉÌ  " + currencyy.pocket[0]);
+             Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  " + currencyy.pocket[0]);
              Suit = "Exception";
              SuitClon = "Exception";
          } else 
@@ -340,7 +553,7 @@ public class JoinTable : MonoBehaviour
          {
              foreach (char v in currencyy.pocket[0])
          {
-                 Debug.Log("Ïðîèçîåøë ÑÒÀÐÒ ÃÅÉÌ  " + currencyy.pocket[0]);
+                 Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  " + currencyy.pocket[0]);
                  Suit = Convert.ToString(v);
 
          }
@@ -472,7 +685,7 @@ public class JoinTable : MonoBehaviour
 
 
 
-        var currency11 = JsonConvert.DeserializeObject<Action>(responce111);
+        
         if (currency11.game.board == null)
         {
 
@@ -494,6 +707,13 @@ public class JoinTable : MonoBehaviour
         CardOnBoardSuit2 = "Exception";
         CardOnBoardSuit3 = "Exception";
         CardOnBoardSuit4 = "Exception";
+
+
+        
+        
+        
+        
+      
         foreach (char v in currency11.game.board[0])
         {
             CardOnBoardSuit = Convert.ToString(v);
@@ -505,8 +725,8 @@ public class JoinTable : MonoBehaviour
             break;
         }
         CardOnTable1 = CardOnBoardText;
-
-
+        FirstCard = currency11.game.board[0];
+        
         foreach (char v in currency11.game.board[1])
         {
             CardOnBoardSuit1 = Convert.ToString(v);
@@ -519,8 +739,8 @@ public class JoinTable : MonoBehaviour
         }
 
         CardOnTable2 = CardOnBoardText1;
-
-
+        SecondCard = currency11.game.board[1];
+        
         foreach (char v in currency11.game.board[2])
         {
             CardOnBoardSuit2 = Convert.ToString(v);
@@ -533,7 +753,8 @@ public class JoinTable : MonoBehaviour
         }
 
         CardOnTable3 = CardOnBoardText2;
-
+        ThirdCard = currency11.game.board[2];
+       
         foreach (char v in currency11.game.board[3])
         {
             CardOnBoardSuit3 = Convert.ToString(v);
@@ -546,8 +767,8 @@ public class JoinTable : MonoBehaviour
         }
 
         CardOnTable4 = CardOnBoardText3;
-
-
+        FourthCard = currency11.game.board[3];
+       
         foreach (char v in currency11.game.board[4])
         {
             CardOnBoardSuit4 = Convert.ToString(v);
@@ -559,6 +780,9 @@ public class JoinTable : MonoBehaviour
             break;
         }
         CardOnTable5 = CardOnBoardText4;
+
+        FifthCard = currency11.game.board[4];
+
 
         var currency111 = JsonConvert.DeserializeObject<RootAction>(responce11);
 
@@ -710,23 +934,6 @@ public class Seat19
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public class Action
 {
     public string eventType { get; set; }
@@ -772,7 +979,7 @@ public class RootAction
     public List<Winner> winners { get; set; }
 }
 
-public class Winner
+public class Winner : BestCombination
 {
     public BestCombination bestCombination { get; set; }
     public int userId { get; set; }
