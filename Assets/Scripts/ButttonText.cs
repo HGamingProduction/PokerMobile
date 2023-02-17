@@ -21,6 +21,5 @@ public class ButttonText : MonoBehaviour
     {
         string text = buttonText.text;
         JoinTable.IdText = text;
-        Debug.Log(JoinTable.IdText);
     }
 }

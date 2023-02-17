@@ -19,6 +19,9 @@ public class FindAllTables : MonoBehaviour
     public static string responses1;
     public static int TotalTables;
     public static int[] IDTables = new int[9999];
+    public static int[] CountSeatsInTable = new int[9999];
+    public static int[] CountEmptySeatsInTable = new int[9999];
+    public static int?[] CreatorTableId = new int?[9999];
     private static void Ws_OnMessage(object sender, MessageEventArgs e)
     {
         Debug.Log("Open1999999: " + e.Data);
@@ -76,12 +79,14 @@ public class FindAllTables : MonoBehaviour
         }
         TotalTables = CurrencyFindAll.pokerTables.total;
 
-
         int j = CurrencyFindAll.pokerTables.total;
         int ii = 0;
         while (ii < j)
         {
             IDTables[ii] = CurrencyFindAll.pokerTables.items[ii].id;
+            CountSeatsInTable[ii] = CurrencyFindAll.pokerTables.items[ii].seatsNumber;
+            CountEmptySeatsInTable[ii] = CurrencyFindAll.pokerTables.items[ii].emptySeatsNumber;
+            CreatorTableId[ii] = CurrencyFindAll.pokerTables.items[ii].creatorId;
             ii++;
         }
 
@@ -113,7 +118,7 @@ public class Item
     public int smallBlind { get; set; }
     public int bigBlind { get; set; }
     public int emptySeatsNumber { get; set; }
-    public object creatorId { get; set; }
+    public int? creatorId { get; set; }
 }
 
 public class PokerTables

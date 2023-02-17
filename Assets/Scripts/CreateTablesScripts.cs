@@ -18,6 +18,7 @@ public class CreateTablesScripts : MonoBehaviour
     public GameObject Canvas; //Основний Canvas чи куди закинути об'єкт
     public GameObject Tabless; // Створюємий об'єкт;
     public GameObject scrip; //Обє'кт з скриптом на приєднання до столів
+    public Text textSeats;
     public RectTransform rectTransform;
     void Start()
     {
@@ -26,24 +27,22 @@ public class CreateTablesScripts : MonoBehaviour
 
     void Update()
     {
-        /*Debug.Log("IDStart");
-        for (int i = 0; i < FindAllTables.TotalTables; i++)
-        {
-            Debug.Log(FindAllTables.IDTables[i]);
-        }
-        Debug.Log("IDEND");*/
         if (Glob.TotalTables == 0)
         {
             GameObject _canvas = Canvas;
             GameObject _delta = Tabless;
             GameObject _delta2 = Tabless;
+            GameObject _delta3 = Tabless;
+            GameObject _buttonDelete = Tabless;
             Text textId;
+            Text textNumber;
             for (int i = 0; i < FindAllTables.TotalTables; i++)
             {
                 int index = 3 + i; //Положення об'єкта
                 int yCoord = -150;
                 int yCoord2 = -250;
                 int yCoord3 = 370;
+                int result = 0;
                 var cmp = scrip.GetComponent<JoinTable>(); //Отримати скрипт який знаходиться в об'єкті
                 rectTransform = _canvas.GetComponent<RectTransform>(); //Отримати компонент RectTransform який знаходиться в 
                 _delta = Instantiate(Tabless) as GameObject;
@@ -60,16 +59,29 @@ public class CreateTablesScripts : MonoBehaviour
                 _delta.transform.SetParent(Canvas.transform, false);
                 _delta.transform.SetSiblingIndex(index); //SetAsLastSibling() для того чтобы сделать объект "ближним" в иерархии или SetAsFirstSibling() наоборот.
                 _delta2 = _delta;
-                _delta2 = GameObject.FindWithTag("Player"); //Знаходить кнопку в якій тег "Player"
-                _delta2.transform.gameObject.tag = "Untagged"; //Змінює тег кнопки на "Finish"
+                _delta2 = GameObject.FindWithTag("Player"); //Знаходить тег "Player"
+                _delta2.transform.gameObject.tag = "Untagged"; //Змінює тег на "Untagged"
                 textId = _delta2.GetComponent<Text>();
                 textId.text = Convert.ToString(FindAllTables.IDTables[i]);
+                _delta3 = _delta;
+                _delta3 = GameObject.FindWithTag("EditorOnly"); //Знаходить тег "EditorOnly"
+                _delta3.transform.gameObject.tag = "Untagged"; //Змінює тег на "Untagged"
+                textNumber = _delta3.GetComponent<Text>();
+                result = FindAllTables.CountSeatsInTable[i] - FindAllTables.CountEmptySeatsInTable[i];
+                textNumber.text = Convert.ToString(result + "/" + FindAllTables.CountSeatsInTable[i]); 
+                _buttonDelete = _delta;
+                _buttonDelete = GameObject.FindWithTag("Respawn"); //Знаходить тег "Respawn"
+                _buttonDelete.transform.gameObject.tag = "Untagged"; //Змінює тег на "Untagged"
+                Button btns = _buttonDelete.GetComponent<Button>();
+                if (Glob.GlobalId == FindAllTables.CreatorTableId[i])
+                {
+                    btns.interactable = true;
+                }
                 _delta = GameObject.FindWithTag("GameController"); //Знаходить кнопку в якій тег "GameController"
                 _delta.transform.gameObject.tag = "Untagged"; //Змінює тег кнопки на "Untagged"
                 _delta.AddComponent<JoinTable>();  //Додає в кнопку компонент JoinTable який являється скриптом    ---- цю строку можна і не писати
                 Button btn = _delta.GetComponent<Button>();  //Додає в змінну btn (яка типу Button) компонент Button
                 btn.onClick.AddListener(cmp.JoinTablePoker); //Додає дію на onClick а саме нашу функції (JoinTablePoker) в скрипті (JoinTable)
-
 
 
 

@@ -598,8 +598,6 @@ public class JoinTable : MonoBehaviour
     // Start is called before the first frame update
     public async void JoinTablePoker()
     {
-        GameObject _delta;
-        Text textId;
         int textIdInt = 0;
 
         MainWebSocket.ws.OnMessage += Ws_OnMessage;
@@ -607,7 +605,7 @@ public class JoinTable : MonoBehaviour
 
 
         textIdInt = Convert.ToInt32(IdText);
-        Debug.Log(textIdInt);
+
         var jsona = new JoinTableAssetsMain
         {
             eventType = "join_table",
