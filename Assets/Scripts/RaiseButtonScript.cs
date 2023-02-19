@@ -51,9 +51,6 @@ public class RaiseButtonScript : MonoBehaviour
     public async void RaiseTableAction()
     {
 
-        
-
-
         MainWebSocket.ws.OnMessage += Ws_OnMessage;
 
         MainWebSocket.ws.Connect();
@@ -67,8 +64,10 @@ public class RaiseButtonScript : MonoBehaviour
         string message = JsonConvert.SerializeObject(jsona);
 
         MainWebSocket.ws.Send(message);
-
-
+        Glob.buttonCallBool = false;
+        Glob.buttonRaiseBool = false;
+        Glob.buttonFoldBool = false;
+        Glob.buttonCheckBool = false;
     }
 
 

@@ -43,7 +43,10 @@ public class CheckButtonScript : MonoBehaviour
 
         MainWebSocket.ws.Send(message);
 
-
+        Glob.buttonCallBool = false;
+        Glob.buttonRaiseBool = false;
+        Glob.buttonFoldBool = false;
+        Glob.buttonCheckBool = false;
     }
 
 

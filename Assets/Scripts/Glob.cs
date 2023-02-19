@@ -23,5 +23,9 @@ public class Glob : MonoBehaviour
     public static int num = 0;
     public static int GlobalId;
     public static int TotalTables = 0;
+    public static bool buttonFoldBool = false;
+    public static bool buttonCallBool = false;
+    public static bool buttonCheckBool = false;
+    public static bool buttonRaiseBool = false;
     /* public static int? NumberChips;*/
 }
