@@ -55,6 +55,8 @@ public class CreateTableButtonScripts : MonoBehaviour
     }
 }
 
+
+
 public class CreatePokerTable : CreateTableButtonRoot
 {
     public int seatsNumber { get; set; }

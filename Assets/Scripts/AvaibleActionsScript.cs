@@ -18,10 +18,14 @@ public class AvaibleActionsScript : MonoBehaviour
     // Start is called before the first frame update
     public GameObject MyPlayerActionPrefab;
     public GameObject OtherPlayerActionPrefab;
+    public GameObject OtherPlayerActionPrefab2;
+    public GameObject OtherPlayerActionPrefab3;
     void Start()
     {
         MyPlayerActionPrefab.gameObject.SetActive(false);
         OtherPlayerActionPrefab.gameObject.SetActive(false);
+        OtherPlayerActionPrefab2.gameObject.SetActive(false);
+        OtherPlayerActionPrefab3.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -45,6 +49,20 @@ public class AvaibleActionsScript : MonoBehaviour
         else { OtherPlayerActionPrefab.gameObject.SetActive(true); }
 
 
+        if (JoinTable.FirstGlobalAvaibleActions2 == 0)
+        {
+            OtherPlayerActionPrefab2.gameObject.SetActive(false);
+
+        }
+        else { OtherPlayerActionPrefab2.gameObject.SetActive(true); }
+
+
+        if (JoinTable.FirstGlobalAvaibleActions3 == 0)
+        {
+            OtherPlayerActionPrefab3.gameObject.SetActive(false);
+
+        }
+        else { OtherPlayerActionPrefab3.gameObject.SetActive(true); }
 
 
 

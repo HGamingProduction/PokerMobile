@@ -20,6 +20,8 @@ public class ChipsViewScript : MonoBehaviour
     [SerializeField] private Text ChipsTextTwo;
     [SerializeField] private Text CurrentBets;
     [SerializeField] private Text CurrentBetTwos;
+    [SerializeField] private Text ChipsTextTwo2;
+    [SerializeField] private Text CurrentBetTwos2;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +32,11 @@ public class ChipsViewScript : MonoBehaviour
 
         CurrentBets.text = Convert.ToString(JoinTable.CurrentBet);
         CurrentBetTwos.text = Convert.ToString(JoinTable.CurrentBetTwo);
+
+        ChipsTextTwo2.text = Convert.ToString(JoinTable.NumberChipsTwo2);
+        CurrentBetTwos2.text = Convert.ToString(JoinTable.CurrentBetTwo2);
+
+
     }
 
     // Update is called once per frame
@@ -42,5 +49,11 @@ public class ChipsViewScript : MonoBehaviour
 
         CurrentBets.text = Convert.ToString(JoinTable.CurrentBet);
         CurrentBetTwos.text = Convert.ToString(JoinTable.CurrentBetTwo);
+
+        ChipsTextTwo2.text = Convert.ToString(JoinTable.NumberChipsTwo2);
+        CurrentBetTwos2.text = Convert.ToString(JoinTable.CurrentBetTwo2);
+
+
+
     }
 }

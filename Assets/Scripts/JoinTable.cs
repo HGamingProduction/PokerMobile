@@ -26,8 +26,12 @@ public class JoinTable : MonoBehaviour
     public static string PocketSecondCard;
     public static int? NumberChips;
     public static int? NumberChipsTwo;
+    public static int? NumberChipsTwo2;
+    public static int? NumberChipsTwo3;
     public static int? CurrentBet;
     public static int? CurrentBetTwo;
+    public static int? CurrentBetTwo2;
+    public static int? CurrentBetTwo3;
     public static string MyPocket;
     public static string MyPocket2;
     public static string responce11;
@@ -39,6 +43,8 @@ public class JoinTable : MonoBehaviour
     public static string CardOnTable3;
     public static string CardOnTable4;
     public static string CardOnTable5;
+    public static string OtherName3;
+    public static string OtherName2;
     public static string OtherName;
     public static string MyName;
     public static string Suit;
@@ -62,9 +68,15 @@ public class JoinTable : MonoBehaviour
     public static string WinsMessage;
     public static int IdOther;
     public static int AvaibleTableOther;
+    public static int AvaibleTableOther2;
+    public static int AvaibleTableOther3;
     public static int MyGlobalAvaibleActions;
     public static int FirstGlobalAvaibleActions;
+    public static int FirstGlobalAvaibleActions2;
+    public static int FirstGlobalAvaibleActions3;
     public static int IdOtherGamer;
+    public static int IdOtherGamer2;
+    public static int IdOtherGamer3;
     public static string? GameWinner;
     public static int MinRaiseBet;
     public static int EndGameWinner;
@@ -89,9 +101,16 @@ public class JoinTable : MonoBehaviour
         var currencyy = JsonConvert.DeserializeObject<Action>(responce11);
         var currencyyy = JsonConvert.DeserializeObject<Root19>(responce1111);
 
+       
+
+
+
         if (currency.msg == "")
         {
-           
+            GlobalCardAction = "FirstException";
+            GlobalCardAction2 = "SecondException2";
+            GlobalCardAction3 = "SecondException2";
+            GlobalCardAction4 = "SecondException2";
 
 
             Debug.Log("��������� ������@@@@@@");
@@ -104,6 +123,8 @@ public class JoinTable : MonoBehaviour
 
 
              }*/
+          
+
             if (currencyWinner.bestCombination.cards[0] == PocketFirstCard)
             {
                 GlobalCardAction = "MyCardActionOne";
@@ -279,10 +300,13 @@ public class JoinTable : MonoBehaviour
 
         if (currency.eventType == "action")
         {
+            MinRaiseBet = currency.seats[IdOther].raiseMinBet;
+            NumberChips = currency.seats[IdOther].userChips;
+            CurrentBet = currency.seats[IdOther].current_bet;
+            MyName = currency.seats[IdOther].userName;
 
 
 
-            
 
 
 
@@ -301,6 +325,12 @@ public class JoinTable : MonoBehaviour
             NumberChipsTwo = currency.seats[IdOtherGamer].userChips;
             CurrentBetTwo = currency.seats[IdOtherGamer].current_bet;
             OtherName = currency.seats[IdOtherGamer].userName;
+            NumberChipsTwo2 = currency.seats[IdOtherGamer2].userChips;
+            CurrentBetTwo2 = currency.seats[IdOtherGamer2].current_bet;
+            OtherName2 = currency.seats[IdOtherGamer2].userName;
+            NumberChipsTwo3 = currency.seats[IdOtherGamer3].userChips;
+            CurrentBetTwo3 = currency.seats[IdOtherGamer3].current_bet;
+            OtherName3 = currency.seats[IdOtherGamer3].userName;
             if (currency.seats[IdOther].availableActions == null)
             {
 
@@ -333,6 +363,41 @@ public class JoinTable : MonoBehaviour
 
             }
 
+            if (currency.seats[IdOtherGamer2].availableActions == null)
+            {
+
+                FirstGlobalAvaibleActions2 = 0;
+
+            }
+            if (currency.seats[IdOtherGamer2].availableActions != null)
+            {
+
+
+                FirstGlobalAvaibleActions2 = 1;
+
+
+
+            }
+
+
+            if (currency.seats[IdOtherGamer3].availableActions == null)
+            {
+
+                FirstGlobalAvaibleActions3 = 0;
+
+            }
+            if (currency.seats[IdOtherGamer3].availableActions != null)
+            {
+
+
+                FirstGlobalAvaibleActions3 = 1;
+
+
+
+            }
+
+
+
             Debug.Log("��������� ������");
         }
 
@@ -341,8 +406,12 @@ public class JoinTable : MonoBehaviour
 
         if (currencyy.eventType == "start_game")
         {
-            
-           
+
+            GlobalCardAction = "FirstException";
+            GlobalCardAction2 = "SecondException2";
+            GlobalCardAction3 = "SecondException2";
+            GlobalCardAction4 = "SecondException2";
+
 
             Debug.Log("��������� VTOROI START");
 
@@ -373,8 +442,17 @@ public class JoinTable : MonoBehaviour
                 }
 
             }
+            if (NumberCard == "T")
+            {
 
-            MyPocket = NumberCard;
+                NumberCard = "10";
+                MyPocket = NumberCard;
+
+            }
+            else
+            {
+                MyPocket = NumberCard;
+            }
 
             PocketFirstCard = currencyy.pocket[0];
             if (currencyy.pocket[1] != null)
@@ -391,94 +469,50 @@ public class JoinTable : MonoBehaviour
                 }
 
             }
+            if (NumberCardClon == "T")
+            {
 
-            MyPocket2 = NumberCardClon;
+                NumberCardClon = "10";
+                MyPocket2 = NumberCardClon;
+            }
+            else
+            {
+                MyPocket2 = NumberCardClon;
+            }
+            
             PocketSecondCard = currencyy.pocket[1];
 
             Debug.Log("��������� ����� ����  " + currencyy.pocket[0]);
             MinRaiseBet = currency.seats[IdOther].raiseMinBet;
-            int l = 0;
-            while (l < 4)
-            {
-                if (currency.seats[l].userId == null || IdOther == l)
-                {
+            VisiblePlayer();
 
 
 
-                    AvaibleTableOther = 0;
-
-                    l++;
-
-                }
-                else
-                {
-
-
-                    AvaibleTableOther = 1;
-                    break;
-                }
-            }
-
-           
         }
 
         if (currency.eventType == "join_table")
         {
-           
-
-            int l = 0;
-            while (l < 4)
-            {
-                if (currency.seats[l].userId == null || IdOther == l)
-                {
 
 
-
-                    AvaibleTableOther = 0;
-
-                    l++;
-
-                }
-                else
-                {
-
-
-                    AvaibleTableOther = 1;
-                    break;
-                }
-            }
+            VisiblePlayer();
 
             MinRaiseBet = currency.seats[IdOther].raiseMinBet;
-          
-            Debug.Log("��������� ���� ����");
+            NumberChips = currency.seats[IdOther].userChips;
+            CurrentBet = currency.seats[IdOther].current_bet;
+            MyName = currency.seats[IdOther].userName;
+
 
         }
         if (currency.eventType == "leave_table")
         {
-            int l = 0;
-            while (l < 4)
-            {
-                if (currency.seats[l].userId == null || IdOther == l)
-                {
+            VisiblePlayer();
+
+            GlobalCardAction = "FirstException";
+            GlobalCardAction2 = "SecondException2";
+            GlobalCardAction3 = "SecondException2";
+            GlobalCardAction4 = "SecondException2";
 
 
-
-                    AvaibleTableOther = 0;
-
-                    l++;
-
-                }
-                else
-                {
-
-
-                    AvaibleTableOther = 1;
-                    break;
-                }
-            }
-
-
-            
         }
         if (currency.eventType == "end_game")
         {
@@ -490,22 +524,30 @@ public class JoinTable : MonoBehaviour
 
             EndGameWinner = 1;
 
-
-
             GlobalCardAction = "FirstException";
             GlobalCardAction2 = "SecondException2";
+            GlobalCardAction3 = "SecondException2";
+            GlobalCardAction4 = "SecondException2";
+
+          
             Debug.Log("��������� ��� ����");
 
         }
-        GlobalCardAction = "FirstException";
+
+       /* GlobalCardAction = "FirstException";
         GlobalCardAction2 = "SecondException2";
         GlobalCardAction3 = "SecondException2";
-        GlobalCardAction4 = "SecondException2";
+        GlobalCardAction4 = "SecondException2";*/
         int a = 0;
         int i = 0;
         int b = 0;
         int? g = 0;
         int o = 0;
+        int aa = 0;
+        int? gg = 0;
+        int aaa = 0;
+        int? ggg = 0;
+
 
         while (i < 4)
         {
@@ -537,9 +579,9 @@ public class JoinTable : MonoBehaviour
         }
         Debug.Log(currency.seats[i].lastActionType);
         /*Debug.Log(currency.seats[b].userChips);*/
-        NumberChips = currency.seats[b].userChips;
+        /*NumberChips = currency.seats[b].userChips;
         CurrentBet = currency.seats[b].current_bet;
-        MyName = currency.seats[b].userName;
+        MyName = currency.seats[b].userName;*/
 
         /*Debug.Log(NumberChips);*/
         /* if (currencyy.pocket[0] == null)
@@ -593,13 +635,14 @@ public class JoinTable : MonoBehaviour
 
         /* MyPocket2 = currency.seats[b].pocket[1];*/
 
-        while (a < 4)
+        while (a < 3)
         {
+            
             if (currency.seats[a].userId != Glob.GlobalId)
             {
 
 
-
+                Debug.Log("DANYALOSHARAazaaaaa");
                 break;
 
             }
@@ -612,6 +655,53 @@ public class JoinTable : MonoBehaviour
         }
         IdOtherGamer = a;
         g = currency.seats[a].userId;
+
+        while (aa < 3)
+        {
+
+            Debug.Log("DANYALOSHARA111222");
+            if (currency.seats[aa].userId != Glob.GlobalId && currency.seats[aa].userId != currency.seats[a].userId && currency.seats[aa].userId != null)
+            {
+
+
+
+                break;
+
+            }
+            else
+            {
+
+                aa++;
+            }
+
+        }
+        IdOtherGamer2 = aa;
+        gg = currency.seats[aa].userId;
+
+        while (aaa < 3)
+        {
+            if (currency.seats[aaa].userId != Glob.GlobalId && currency.seats[aaa].userId != currency.seats[aa].userId && currency.seats[aaa].userId != currency.seats[a].userId && currency.seats[aaa].userId != null)
+            {
+
+
+
+                break;
+
+            }
+            else
+            {
+
+                aaa++;
+            }
+
+        }
+        IdOtherGamer3 = aaa;
+        ggg = currency.seats[aaa].userId;
+
+
+
+
+
         /*umberChipsTwo = currency.seats[a].userChips;
         CurrentBetTwo = currency.seats[a].current_bet;*/
         /*if (currency.seats[1].userId == a)
@@ -655,6 +745,45 @@ public class JoinTable : MonoBehaviour
 
 
         }
+
+
+        if (currency.seats[aa].availableActions == null)
+        {
+
+            FirstGlobalAvaibleActions2 = 0;
+
+        }
+        if (currency.seats[aa].availableActions != null)
+        {
+
+
+            FirstGlobalAvaibleActions2 = 1;
+
+
+
+        }
+
+
+
+        if (currency.seats[aaa].availableActions == null)
+        {
+
+            FirstGlobalAvaibleActions3 = 0;
+
+        }
+        if (currency.seats[aaa].availableActions != null)
+        {
+
+
+            FirstGlobalAvaibleActions3 = 1;
+
+
+
+        }
+
+
+        VisiblePlayer();
+
         if (currency.seats[a].lastActionType == null)
         {
 
@@ -682,10 +811,23 @@ public class JoinTable : MonoBehaviour
             OtherName = currency.seats[a].userName;
 
         }
+        if (currency.seats[aa].userId == gg)
+        {
+
+            NumberChipsTwo2 = currency.seats[IdOtherGamer2].userChips;
+            CurrentBetTwo2 = currency.seats[IdOtherGamer2].current_bet;
+            OtherName2 = currency.seats[IdOtherGamer2].userName;
+        }
+        if (currency.seats[aaa].userId == ggg)
+        {
+
+            NumberChipsTwo3 = currency.seats[IdOtherGamer3].userChips;
+            CurrentBetTwo3 = currency.seats[IdOtherGamer3].current_bet;
+            OtherName3 = currency.seats[IdOtherGamer3].userName;
+        }
 
 
 
-        
         if (currency11.game.board == null)
         {
 
@@ -724,7 +866,18 @@ public class JoinTable : MonoBehaviour
             CardOnBoardText = Convert.ToString(v);
             break;
         }
-        CardOnTable1 = CardOnBoardText;
+
+        if (CardOnBoardText == "T")
+        {
+            CardOnBoardText = "10";
+            CardOnTable1 = CardOnBoardText; }
+
+
+
+        else
+
+        { CardOnTable1 = CardOnBoardText; }
+
         FirstCard = currency11.game.board[0];
         
         foreach (char v in currency11.game.board[1])
@@ -738,7 +891,23 @@ public class JoinTable : MonoBehaviour
             break;
         }
 
-        CardOnTable2 = CardOnBoardText1;
+        if (CardOnBoardText1 == "T")
+        {
+            CardOnBoardText1 = "10";
+            CardOnTable2 = CardOnBoardText1;
+        }
+
+
+
+        else
+
+        { CardOnTable2 = CardOnBoardText1; }
+
+
+
+
+
+           
         SecondCard = currency11.game.board[1];
         
         foreach (char v in currency11.game.board[2])
@@ -752,7 +921,20 @@ public class JoinTable : MonoBehaviour
             break;
         }
 
-        CardOnTable3 = CardOnBoardText2;
+        if (CardOnBoardText2 == "T")
+        {
+            CardOnBoardText2 = "10";
+            CardOnTable3 = CardOnBoardText2;
+        }
+
+
+
+        else
+
+        { CardOnTable3 = CardOnBoardText2; }
+
+
+
         ThirdCard = currency11.game.board[2];
        
         foreach (char v in currency11.game.board[3])
@@ -766,7 +948,20 @@ public class JoinTable : MonoBehaviour
             break;
         }
 
-        CardOnTable4 = CardOnBoardText3;
+        if (CardOnBoardText3 == "T")
+        {
+            CardOnBoardText3 = "10";
+            CardOnTable4 = CardOnBoardText3;
+        }
+
+
+
+        else
+
+        { CardOnTable4 = CardOnBoardText3; }
+
+
+       
         FourthCard = currency11.game.board[3];
        
         foreach (char v in currency11.game.board[4])
@@ -779,7 +974,20 @@ public class JoinTable : MonoBehaviour
             CardOnBoardText4 = Convert.ToString(v);
             break;
         }
-        CardOnTable5 = CardOnBoardText4;
+
+
+        if (CardOnBoardText4 == "T")
+        {
+            CardOnBoardText4 = "10";
+            CardOnTable5 = CardOnBoardText4;
+        }
+
+
+
+        else
+
+        { CardOnTable5 = CardOnBoardText4; }
+
 
         FifthCard = currency11.game.board[4];
 
@@ -817,10 +1025,85 @@ public class JoinTable : MonoBehaviour
        
 
         }*/
+      
 
 
 
 
+    }
+
+
+    public static void VisiblePlayer()
+    {
+        var currency = JsonConvert.DeserializeObject<Root1>(responce11);
+
+
+        int l = 0;
+        while (l < 3)
+        {
+            if (currency.seats[l].userId == null || IdOther == l)
+            {
+
+
+
+                AvaibleTableOther = 0;
+
+                l++;
+
+            }
+            else
+            {
+
+
+                AvaibleTableOther = 1;
+                break;
+            }
+        }
+
+        int ll = 0;
+        while (ll < 3)
+        {
+            if (currency.seats[ll].userId == null || IdOther == ll || IdOtherGamer == ll)
+            {
+
+
+
+                AvaibleTableOther2 = 0;
+
+                ll++;
+
+            }
+            else
+            {
+
+
+                AvaibleTableOther2 = 1;
+                break;
+            }
+        }
+
+
+        int lll = 0;
+        while (lll < 3)
+        {
+            if (currency.seats[lll].userId == null || IdOther == lll || IdOtherGamer == lll || IdOtherGamer2 == lll)
+            {
+
+
+
+                AvaibleTableOther3 = 0;
+
+                lll++;
+
+            }
+            else
+            {
+
+
+                AvaibleTableOther3 = 1;
+                break;
+            }
+        }
 
 
 
@@ -829,7 +1112,6 @@ public class JoinTable : MonoBehaviour
 
 
     }
-       
     // Start is called before the first frame update
     public async void JoinTablePoker()
     {

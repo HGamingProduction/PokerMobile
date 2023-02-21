@@ -17,11 +17,15 @@ public class ChangeNameScript : MonoBehaviour
 {
     [SerializeField] private Text NameMyChange;
     [SerializeField] private Text NameOtherChange;
+    [SerializeField] private Text NameOtherChange2;
+    [SerializeField] private Text NameOtherChange3;
     // Start is called before the first frame update
     void Start()
     {
         NameMyChange.text = JoinTable.MyName;
         NameOtherChange.text = JoinTable.OtherName;
+        NameOtherChange2.text = JoinTable.OtherName2;
+        NameOtherChange3.text = JoinTable.OtherName3;
     }
 
     // Update is called once per frame
@@ -29,5 +33,7 @@ public class ChangeNameScript : MonoBehaviour
     {
         NameMyChange.text = JoinTable.MyName;
         NameOtherChange.text = JoinTable.OtherName;
+        NameOtherChange2.text = JoinTable.OtherName2;
+        NameOtherChange3.text = JoinTable.OtherName3;
     }
 }

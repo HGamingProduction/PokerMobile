@@ -35,19 +35,29 @@ public class AvaibleCardActionsScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (JoinTable.GlobalCardAction == "FirstException")
+
+       
+
+
+         if (JoinTable.GlobalCardAction == "FirstException")
+         {
+             
+             BestCardCombinationPokcet.gameObject.SetActive(false);
+             BestCardCombinationPokcetClone.gameObject.SetActive(false);
+             BestCardCombinationBoard1.gameObject.SetActive(false);
+             BestCardCombinationBoard2.gameObject.SetActive(false);
+             BestCardCombinationBoard3.gameObject.SetActive(false);
+             BestCardCombinationBoard4.gameObject.SetActive(false);
+             BestCardCombinationBoard5.gameObject.SetActive(false);
+
+
+         } else
         {
-            BestCardCombinationPokcet.gameObject.SetActive(false);
-            BestCardCombinationPokcetClone.gameObject.SetActive(false);
-            BestCardCombinationBoard1.gameObject.SetActive(false);
-            BestCardCombinationBoard2.gameObject.SetActive(false);
-            BestCardCombinationBoard3.gameObject.SetActive(false);
-            BestCardCombinationBoard4.gameObject.SetActive(false);
-            BestCardCombinationBoard5.gameObject.SetActive(false);
 
 
+           
         }
-
+ 
 
 
 

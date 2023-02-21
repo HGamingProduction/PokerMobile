@@ -16,12 +16,14 @@ using UnityEngine.SceneManagement;
 public class AvaibleOnTableScript : MonoBehaviour
 {
     public GameObject PrefabPeopleOther;
+    public GameObject PrefabPeopleOther2;
+    public GameObject PrefabPeopleOther3;
     // Start is called before the first frame update
-  void Start ()
+    void Start ()
     {
 
 
-        PrefabPeopleOther.gameObject.SetActive(false);
+       
 
 
 
@@ -52,6 +54,53 @@ public class AvaibleOnTableScript : MonoBehaviour
 
 
         }
+
+
+        if (JoinTable.AvaibleTableOther2 == 0)
+        {
+
+            PrefabPeopleOther2.gameObject.SetActive(false);
+
+
+
+
+        }
+
+
+        if (JoinTable.AvaibleTableOther2 == 1)
+        {
+
+            PrefabPeopleOther2.gameObject.SetActive(true);
+
+
+
+
+
+
+        }
+
+
+        if (JoinTable.AvaibleTableOther3 == 1)
+        {
+
+            PrefabPeopleOther3.gameObject.SetActive(false);
+
+
+
+
+        }
+
+
+        if (JoinTable.AvaibleTableOther3 == 0)
+        {
+
+            PrefabPeopleOther3.gameObject.SetActive(true);
+
+
+
+
+        }
+
 
 
     }
