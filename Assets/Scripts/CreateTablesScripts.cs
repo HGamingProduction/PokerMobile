@@ -33,8 +33,10 @@ public class CreateTablesScripts : MonoBehaviour
             GameObject _delta = Tabless;
             GameObject _delta2 = Tabless;
             GameObject _delta3 = Tabless;
+            GameObject _delta4 = Tabless;
             GameObject _buttonDelete = Tabless;
             Text textId;
+            Text textArr;
             Text textNumber;
             for (int i = 0; i < FindAllTables.TotalTables; i++)
             {
@@ -77,12 +79,16 @@ public class CreateTablesScripts : MonoBehaviour
                 {
                     btns.interactable = true;
                 }
+                _delta4 = _delta;
+                _delta4 = GameObject.FindWithTag("Finish"); //��������� ��� "Player"
+                _delta4.transform.gameObject.tag = "Untagged"; //����� ��� �� "Untagged"
+                textArr = _delta4.GetComponent<Text>();
+                textArr.text = Convert.ToString(i);
                 _delta = GameObject.FindWithTag("GameController"); //��������� ������ � ��� ��� "GameController"
                 _delta.transform.gameObject.tag = "Untagged"; //����� ��� ������ �� "Untagged"
                 _delta.AddComponent<JoinTable>();  //���� � ������ ��������� JoinTable ���� ��������� ��������    ---- �� ������ ����� � �� ������
                 Button btn = _delta.GetComponent<Button>();  //���� � ����� btn (��� ���� Button) ��������� Button
                 btn.onClick.AddListener(cmp.JoinTablePoker); //���� �� �� onClick � ���� ���� ������� (JoinTablePoker) � ������ (JoinTable)
-
 
 
                 Glob.TotalTables = 1;  //�� ������ TotalTables (� ��� 1-��� ������ �����, 0-�� �� �������� �����)

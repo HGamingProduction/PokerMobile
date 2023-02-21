@@ -34,16 +34,21 @@ public class ProfileScripts : MonoBehaviour
         MainWebSocket.ws.OnMessage += Ws_OnMessage;
         MainWebSocket.ws.Connect();
 
-        string Umailtext = Glob.GlobalEmails;
-        string Unametext = Convert.ToString(Uname.text);
+        string Unametext = (Uname.text);
+        string Umailtext = (Umail.text);
         var jsona = new Rootrt
         {
             eventType = "update_user",
-            updateUser = new UpdateUser { email = Umailtext, name = Unametext, chips = 69696969}
+            updateUser = new UpdateUser { name = Unametext, email = Umailtext, chips = Glob.GlobalChips}
         };
         string message = JsonConvert.SerializeObject(jsona);
         Debug.Log(message);
         MainWebSocket.ws.Send(message);
+
+        Glob.GlobalName = (Uname.text);
+        Glob.GlobalEmails = (Umail.text);
+        Uname.text = Glob.GlobalName;
+        Umail.text = Glob.GlobalEmails;
     }
 }
 
@@ -55,8 +60,8 @@ public class Rootrt
 
 public class UpdateUser
 {
-    public string email { get; set; }
     public string name { get; set; }
+    public string email { get; set; }
     public int chips { get; set; }
 }
 

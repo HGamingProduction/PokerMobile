@@ -81,6 +81,7 @@ public class JoinTable : MonoBehaviour
     public static int MinRaiseBet;
     public static int EndGameWinner;
     public static string IdText;
+    public static string TextArr;
     public static string GlobalCardAction;
     public static string GlobalCardAction2;
     public static string GlobalCardAction3;
@@ -305,6 +306,11 @@ public class JoinTable : MonoBehaviour
             CurrentBet = currency.seats[IdOther].current_bet;
             MyName = currency.seats[IdOther].userName;
 
+            if (NumberChips != null)
+            {
+                Glob.GlobalChips = Convert.ToInt32(NumberChips);
+            }
+            
 
 
 
@@ -321,6 +327,11 @@ public class JoinTable : MonoBehaviour
             NumberChips = currency.seats[IdOther].userChips;
             CurrentBet = currency.seats[IdOther].current_bet;
             MyName = currency.seats[IdOther].userName;
+
+            if (NumberChips != null)
+            {
+                Glob.GlobalChips = Convert.ToInt32(NumberChips);
+            }
 
             NumberChipsTwo = currency.seats[IdOtherGamer].userChips;
             CurrentBetTwo = currency.seats[IdOtherGamer].current_bet;
@@ -501,7 +512,10 @@ public class JoinTable : MonoBehaviour
             CurrentBet = currency.seats[IdOther].current_bet;
             MyName = currency.seats[IdOther].userName;
 
-
+            if (NumberChips != null)
+            {
+                Glob.GlobalChips = Convert.ToInt32(NumberChips);
+            }
         }
         if (currency.eventType == "leave_table")
         {
@@ -1133,7 +1147,7 @@ public class JoinTable : MonoBehaviour
 
         string message = JsonConvert.SerializeObject(jsona);
         MainWebSocket.ws.Send(message);
-
+        Debug.Log(TextArr);
         SceneManager.LoadScene(2);
     }
    

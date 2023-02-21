@@ -16,10 +16,13 @@ using UnityEngine.SceneManagement;
 public class ButttonText : MonoBehaviour
 {
     public Text buttonText;
+    public Text buttonText2;
 
     public void GetButtonText()
     {
         string text = buttonText.text;
         JoinTable.IdText = text;
+        string text2 = buttonText2.text;
+        JoinTable.TextArr = text2;
     }
 }

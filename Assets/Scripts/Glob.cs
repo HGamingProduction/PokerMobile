@@ -22,6 +22,7 @@ public class Glob : MonoBehaviour
     public static TimerCallback tm;
     public static int num = 0;
     public static int GlobalId;
+    public static int GlobalChips = 1000;
     public static string GlobalName;
     public static string GlobalEmails;
     public static int TotalTables = 0;

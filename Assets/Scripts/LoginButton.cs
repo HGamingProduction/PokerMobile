@@ -30,7 +30,6 @@ public class LoginButton : MonoBehaviour
         string loginpassword = (sendpassword.text);
         HttpClient httpClient = new HttpClient();
 
-
         var jsona = new Jsona
         {
             email = loginemail,
@@ -59,9 +58,9 @@ public class LoginButton : MonoBehaviour
         /*Debug.Log(Glob.websocketurl);*/
         Glob.GlobalId = currency.user.id;
         Glob.GlobalName = currency.user.name;
+        Glob.GlobalChips = currency.user.chips;
         if (example == currency.token)
         {
-
             SceneManager.LoadScene(1);
         };
 
@@ -85,5 +84,5 @@ public class Jsona : Test
     public string token { get; set; }
     public string password { get; set; }
     public string name { get; set; }
-
+    public int chips { get; set; }
 }
