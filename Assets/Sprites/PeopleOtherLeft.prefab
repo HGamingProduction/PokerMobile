@@ -272,7 +272,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 123, y: -126.2}
+  m_AnchoredPosition: {x: 124, y: -127}
   m_SizeDelta: {x: 49.020004, y: 72.01001}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &8131216137282636243
@@ -484,6 +484,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NameMyChange: {fileID: 0}
   NameOtherChange: {fileID: 8712768511826902976}
+  NameOtherChange2: {fileID: 0}
+  NameOtherChange3: {fileID: 0}
 --- !u!1 &8712768512159184555
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,6 +659,8 @@ MonoBehaviour:
   ChipsTextTwo: {fileID: 8712768512334141606}
   CurrentBets: {fileID: 0}
   CurrentBetTwos: {fileID: 0}
+  ChipsTextTwo2: {fileID: 0}
+  CurrentBetTwos2: {fileID: 0}
 --- !u!1 &8712768512487691673
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,6 +758,8 @@ MonoBehaviour:
   ChipsTextTwo: {fileID: 0}
   CurrentBets: {fileID: 0}
   CurrentBetTwos: {fileID: 8712768512487691671}
+  ChipsTextTwo2: {fileID: 0}
+  CurrentBetTwos2: {fileID: 0}
 --- !u!1 &8712768512520478197
 GameObject:
   m_ObjectHideFlags: 0
@@ -813,6 +819,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PrefabPeopleOther: {fileID: 8712768512520478197}
+  PrefabPeopleOther2: {fileID: 0}
+  PrefabPeopleOther3: {fileID: 0}
 --- !u!1 &8712768512767570539
 GameObject:
   m_ObjectHideFlags: 0
@@ -1068,7 +1076,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7977294931707878766, guid: 630921687b47da34bb00d22e9b5ddccc, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 630921687b47da34bb00d22e9b5ddccc, type: 3}

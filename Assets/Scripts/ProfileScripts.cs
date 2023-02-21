@@ -34,8 +34,8 @@ public class ProfileScripts : MonoBehaviour
         MainWebSocket.ws.OnMessage += Ws_OnMessage;
         MainWebSocket.ws.Connect();
 
-        string Unametext = Uname.text;
-        string Umailtext = Umail.text;
+        string Umailtext = Glob.GlobalEmails;
+        string Unametext = Convert.ToString(Uname.text);
         var jsona = new Rootrt
         {
             eventType = "update_user",
