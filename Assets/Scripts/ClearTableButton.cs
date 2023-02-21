@@ -31,7 +31,7 @@ public class ClearTableButton : MonoBehaviour
         var jsona = new ClearTableAssetsMain
         {
             eventType = "clean_table",
-            pokerTable = new ClearTableAssetsMain { id = 19 }
+            pokerTable = new ClearTableAssetsMain { id = 1 }
         };
 
         string message = JsonConvert.SerializeObject(jsona);
