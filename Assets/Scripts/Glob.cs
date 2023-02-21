@@ -22,6 +22,8 @@ public class Glob : MonoBehaviour
     public static TimerCallback tm;
     public static int num = 0;
     public static int GlobalId;
+    public static string GlobalName;
+    public static string GlobalEmails;
     public static int TotalTables = 0;
     public static bool buttonFoldBool = false;
     public static bool buttonCallBool = false;

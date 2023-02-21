@@ -50,6 +50,7 @@ public class LoginButton : MonoBehaviour
         Debug.Log(responseText);
 
         var currency = JsonConvert.DeserializeObject<Jsona>(responseText);
+        Glob.GlobalEmails = currency.user.email;
         Debug.Log(currency.user.email);
         string example = (currency.token);
 
@@ -57,7 +58,7 @@ public class LoginButton : MonoBehaviour
         Glob.websocketurl = exampleurl + example;
         /*Debug.Log(Glob.websocketurl);*/
         Glob.GlobalId = currency.user.id;
-
+        Glob.GlobalName = currency.user.name;
         if (example == currency.token)
         {
 
@@ -83,6 +84,6 @@ public class Jsona : Test
     [Newtonsoft.Json.JsonProperty("Token")]
     public string token { get; set; }
     public string password { get; set; }
-   
+    public string name { get; set; }
 
 }
