@@ -70,13 +70,16 @@ public class JoinTable : MonoBehaviour
     public static int AvaibleTableOther;
     public static int AvaibleTableOther2;
     public static int AvaibleTableOther3;
+    public static int AvaibleTableOther4;
     public static int MyGlobalAvaibleActions;
     public static int FirstGlobalAvaibleActions;
     public static int FirstGlobalAvaibleActions2;
     public static int FirstGlobalAvaibleActions3;
+    public static int FirstGlobalAvaibleActions4;
     public static int IdOtherGamer;
     public static int IdOtherGamer2;
     public static int IdOtherGamer3;
+    public static int IdOtherGamer4;
     public static string? GameWinner;
     public static int MinRaiseBet;
     public static int EndGameWinner;
@@ -306,11 +309,6 @@ public class JoinTable : MonoBehaviour
             CurrentBet = currency.seats[IdOther].current_bet;
             MyName = currency.seats[IdOther].userName;
 
-            if (NumberChips != null)
-            {
-                Glob.GlobalChips = Convert.ToInt32(NumberChips);
-            }
-            
 
 
 
@@ -320,18 +318,13 @@ public class JoinTable : MonoBehaviour
 
             Debug.Log("��������� ������");
         }
-        if (currency.msg == "new game at the table #1 started")
+        if (currency.msg == "new game at the table #"+ IdText +" started")
         {
             
             BankOnTable = currencyy.game.bank;
             NumberChips = currency.seats[IdOther].userChips;
             CurrentBet = currency.seats[IdOther].current_bet;
             MyName = currency.seats[IdOther].userName;
-
-            if (NumberChips != null)
-            {
-                Glob.GlobalChips = Convert.ToInt32(NumberChips);
-            }
 
             NumberChipsTwo = currency.seats[IdOtherGamer].userChips;
             CurrentBetTwo = currency.seats[IdOtherGamer].current_bet;
@@ -406,7 +399,21 @@ public class JoinTable : MonoBehaviour
 
 
             }
+            if (currency.seats[IdOtherGamer4].availableActions == null)
+            {
 
+                FirstGlobalAvaibleActions4 = 0;
+
+            }
+            if (currency.seats[IdOtherGamer4].availableActions != null)
+            {
+
+
+                FirstGlobalAvaibleActions4 = 1;
+
+
+
+            }
 
 
             Debug.Log("��������� ������");
@@ -512,10 +519,7 @@ public class JoinTable : MonoBehaviour
             CurrentBet = currency.seats[IdOther].current_bet;
             MyName = currency.seats[IdOther].userName;
 
-            if (NumberChips != null)
-            {
-                Glob.GlobalChips = Convert.ToInt32(NumberChips);
-            }
+
         }
         if (currency.eventType == "leave_table")
         {
@@ -561,9 +565,11 @@ public class JoinTable : MonoBehaviour
         int? gg = 0;
         int aaa = 0;
         int? ggg = 0;
+        int aaa4 = 0;
+        int? ggg4 = 0;
 
 
-        while (i < 4)
+        while (i < 9)
         {
             if (currency.seats[i].userId == Glob.GlobalId)
             {
@@ -649,7 +655,9 @@ public class JoinTable : MonoBehaviour
 
         /* MyPocket2 = currency.seats[b].pocket[1];*/
 
-        while (a < 3)
+
+
+        while (a < 9)
         {
             
             if (currency.seats[a].userId != Glob.GlobalId)
@@ -670,7 +678,9 @@ public class JoinTable : MonoBehaviour
         IdOtherGamer = a;
         g = currency.seats[a].userId;
 
-        while (aa < 3)
+
+
+        while (aa < 9)
         {
 
             Debug.Log("DANYALOSHARA111222");
@@ -692,7 +702,9 @@ public class JoinTable : MonoBehaviour
         IdOtherGamer2 = aa;
         gg = currency.seats[aa].userId;
 
-        while (aaa < 3)
+
+
+        while (aaa < 9)
         {
             if (currency.seats[aaa].userId != Glob.GlobalId && currency.seats[aaa].userId != currency.seats[aa].userId && currency.seats[aaa].userId != currency.seats[a].userId && currency.seats[aaa].userId != null)
             {
@@ -711,6 +723,32 @@ public class JoinTable : MonoBehaviour
         }
         IdOtherGamer3 = aaa;
         ggg = currency.seats[aaa].userId;
+
+
+        while (aaa4 < 9)
+        {
+            if (currency.seats[aaa4].userId != Glob.GlobalId && currency.seats[aaa4].userId != currency.seats[aaa].userId && currency.seats[aaa4].userId != currency.seats[aa].userId && currency.seats[aaa4].userId != currency.seats[a].userId && currency.seats[aaa4].userId != null)
+            {
+
+
+
+                break;
+
+            }
+            else
+            {
+
+                aaa4++;
+            }
+
+        }
+        IdOtherGamer4 = aaa4;
+        ggg4 = currency.seats[aaa4].userId;
+
+
+
+
+
 
 
 
@@ -790,6 +828,21 @@ public class JoinTable : MonoBehaviour
 
 
             FirstGlobalAvaibleActions3 = 1;
+
+
+
+        }
+        if (currency.seats[aaa4].availableActions == null)
+        {
+
+            FirstGlobalAvaibleActions4 = 0;
+
+        }
+        if (currency.seats[aaa4].availableActions != null)
+        {
+
+
+            FirstGlobalAvaibleActions4 = 1;
 
 
 
@@ -1051,9 +1104,12 @@ public class JoinTable : MonoBehaviour
     {
         var currency = JsonConvert.DeserializeObject<Root1>(responce11);
 
+        int setUpId;
+        setUpId = Convert.ToInt32(IdText);
+        setUpId = setUpId - 1;
 
         int l = 0;
-        while (l < 3)
+        while (l < 9)
         {
             if (currency.seats[l].userId == null || IdOther == l)
             {
@@ -1075,7 +1131,7 @@ public class JoinTable : MonoBehaviour
         }
 
         int ll = 0;
-        while (ll < 3)
+        while (ll < 9)
         {
             if (currency.seats[ll].userId == null || IdOther == ll || IdOtherGamer == ll)
             {
@@ -1098,7 +1154,7 @@ public class JoinTable : MonoBehaviour
 
 
         int lll = 0;
-        while (lll < 3)
+        while (lll < 9)
         {
             if (currency.seats[lll].userId == null || IdOther == lll || IdOtherGamer == lll || IdOtherGamer2 == lll)
             {
@@ -1120,6 +1176,28 @@ public class JoinTable : MonoBehaviour
         }
 
 
+
+        int lll4 = 0;
+        while (lll4 < 9)
+        {
+            if (currency.seats[lll4].userId == null || IdOther == lll4 || IdOtherGamer == lll4 || IdOtherGamer2 == lll4 || IdOtherGamer3 == lll4)
+            {
+
+
+
+                AvaibleTableOther4 = 0;
+
+                lll4++;
+
+            }
+            else
+            {
+
+
+                AvaibleTableOther4 = 1;
+                break;
+            }
+        }
 
 
 
@@ -1147,7 +1225,7 @@ public class JoinTable : MonoBehaviour
 
         string message = JsonConvert.SerializeObject(jsona);
         MainWebSocket.ws.Send(message);
-        Debug.Log(TextArr);
+
         SceneManager.LoadScene(2);
     }
    

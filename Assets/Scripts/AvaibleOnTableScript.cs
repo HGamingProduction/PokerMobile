@@ -18,6 +18,7 @@ public class AvaibleOnTableScript : MonoBehaviour
     public GameObject PrefabPeopleOther;
     public GameObject PrefabPeopleOther2;
     public GameObject PrefabPeopleOther3;
+    public GameObject PrefabPeopleOther4;
     // Start is called before the first frame update
     void Start ()
     {
@@ -80,7 +81,7 @@ public class AvaibleOnTableScript : MonoBehaviour
         }
 
 
-        if (JoinTable.AvaibleTableOther3 == 1)
+        if (JoinTable.AvaibleTableOther3 == 0)
         {
 
             PrefabPeopleOther3.gameObject.SetActive(false);
@@ -91,7 +92,7 @@ public class AvaibleOnTableScript : MonoBehaviour
         }
 
 
-        if (JoinTable.AvaibleTableOther3 == 0)
+        if (JoinTable.AvaibleTableOther3 == 1)
         {
 
             PrefabPeopleOther3.gameObject.SetActive(true);
@@ -101,6 +102,27 @@ public class AvaibleOnTableScript : MonoBehaviour
 
         }
 
+
+        if (JoinTable.AvaibleTableOther4 == 0)
+        {
+
+            PrefabPeopleOther4.gameObject.SetActive(false);
+
+
+
+
+        }
+
+
+        if (JoinTable.AvaibleTableOther4 == 1)
+        {
+
+            PrefabPeopleOther4.gameObject.SetActive(true);
+
+
+
+
+        }
 
 
     }
