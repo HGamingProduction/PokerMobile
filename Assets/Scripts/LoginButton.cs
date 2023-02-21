@@ -30,6 +30,7 @@ public class LoginButton : MonoBehaviour
         string loginpassword = (sendpassword.text);
         HttpClient httpClient = new HttpClient();
 
+
         var jsona = new Jsona
         {
             email = loginemail,
@@ -61,6 +62,7 @@ public class LoginButton : MonoBehaviour
         Glob.GlobalChips = currency.user.chips;
         if (example == currency.token)
         {
+
             SceneManager.LoadScene(1);
         };
 

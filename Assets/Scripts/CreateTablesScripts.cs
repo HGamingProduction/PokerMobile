@@ -91,6 +91,7 @@ public class CreateTablesScripts : MonoBehaviour
                 btn.onClick.AddListener(cmp.JoinTablePoker); //���� �� �� onClick � ���� ���� ������� (JoinTablePoker) � ������ (JoinTable)
 
 
+
                 Glob.TotalTables = 1;  //�� ������ TotalTables (� ��� 1-��� ������ �����, 0-�� �� �������� �����)
             }
         }
