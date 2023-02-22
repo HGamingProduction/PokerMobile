@@ -1059,9 +1059,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 278460725}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f394c2595e8263046bb7b8999a307e8a, type: 3}
+  m_Script: {fileID: 11500000, guid: bb01c507fac91c64f94cf2e68889232d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider1: {fileID: 1101234572}
+  ValueSlider1: {fileID: 41738508}
+  slider2: {fileID: 596017478}
+  ValueSlider2: {fileID: 315427489}
 --- !u!1 &291664526
 GameObject:
   m_ObjectHideFlags: 0
@@ -1235,7 +1239,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 2
+  m_Text: 10
 --- !u!222 &315427490
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1706,10 +1710,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 1684290816}
   m_HandleRect: {fileID: 817583843}
   m_Direction: 0
-  m_MinValue: 10
-  m_MaxValue: 100
+  m_MinValue: 1
+  m_MaxValue: 10
   m_WholeNumbers: 1
-  m_Value: 10
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

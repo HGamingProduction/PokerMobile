@@ -15,8 +15,8 @@ using UnityEngine.SceneManagement;
 
 public class CreateTablesScripts : MonoBehaviour
 {
-    public GameObject Canvas; //�������� Canvas �� ���� �������� ��'���
-    public GameObject Tabless; // ���������� ��'���;
+    public GameObject Canvas; //Основной Canvas чи куда 
+    public GameObject Tabless; // Создаваемый объект;
     public GameObject scrip; //��'�� � �������� �� ��������� �� �����
     public Text textSeats;
     public RectTransform rectTransform;

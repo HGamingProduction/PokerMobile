@@ -32,6 +32,7 @@ public class CreateTableButtonScripts : MonoBehaviour
         string? cryptoTypes;
         float sliderValue1 = slider1.value;
         float sliderValue2 = slider2.value;
+        sliderValue2 = sliderValue2 * 10;
         if (SelectedTypeGameScripts.selectedOption == "GAME")
         {
             cryptoTypes = null;

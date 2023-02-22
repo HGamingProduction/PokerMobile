@@ -1227,6 +1227,9 @@ public class JoinTable : MonoBehaviour
         MainWebSocket.ws.Send(message);
         Debug.Log(TextArr);
         SceneManager.LoadScene(2);
+
+        
+
     }
    
 
