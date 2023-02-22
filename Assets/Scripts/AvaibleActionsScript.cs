@@ -21,6 +21,11 @@ public class AvaibleActionsScript : MonoBehaviour
     public GameObject OtherPlayerActionPrefab2;
     public GameObject OtherPlayerActionPrefab3;
     public GameObject OtherPlayerActionPrefab4;
+    public GameObject OtherPlayerActionPrefab5;
+    public GameObject OtherPlayerActionPrefab6;
+    public GameObject OtherPlayerActionPrefab7;
+    public GameObject OtherPlayerActionPrefab8;
+    public GameObject OtherPlayerActionPrefab9;
     void Start()
     {
         MyPlayerActionPrefab.gameObject.SetActive(false);
@@ -28,6 +33,11 @@ public class AvaibleActionsScript : MonoBehaviour
         OtherPlayerActionPrefab2.gameObject.SetActive(false);
         OtherPlayerActionPrefab3.gameObject.SetActive(false);
         OtherPlayerActionPrefab4.gameObject.SetActive(false);
+        OtherPlayerActionPrefab5.gameObject.SetActive(false);
+        OtherPlayerActionPrefab6.gameObject.SetActive(false);
+        OtherPlayerActionPrefab7.gameObject.SetActive(false);
+        OtherPlayerActionPrefab8.gameObject.SetActive(false);
+        OtherPlayerActionPrefab9.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -73,6 +83,55 @@ public class AvaibleActionsScript : MonoBehaviour
 
         }
         else { OtherPlayerActionPrefab4.gameObject.SetActive(true); }
+
+
+
+        if (JoinTable.FirstGlobalAvaibleActions5 == 0)
+        {
+            OtherPlayerActionPrefab5.gameObject.SetActive(false);
+
+        }
+        else { OtherPlayerActionPrefab5.gameObject.SetActive(true); }
+
+        
+
+
+        if (JoinTable.FirstGlobalAvaibleActions6 == 0)
+        {
+            OtherPlayerActionPrefab6.gameObject.SetActive(false);
+
+        }
+        else { OtherPlayerActionPrefab6.gameObject.SetActive(true); }
+
+
+
+
+        if (JoinTable.FirstGlobalAvaibleActions7 == 0)
+        {
+            OtherPlayerActionPrefab7.gameObject.SetActive(false);
+
+        }
+        else { OtherPlayerActionPrefab7.gameObject.SetActive(true); }
+        
+
+
+
+        if (JoinTable.FirstGlobalAvaibleActions8 == 0)
+        {
+            OtherPlayerActionPrefab8.gameObject.SetActive(false);
+
+        }
+        else { OtherPlayerActionPrefab8.gameObject.SetActive(true); }
+
+
+
+
+        if (JoinTable.FirstGlobalAvaibleActions9 == 0)
+        {
+            OtherPlayerActionPrefab9.gameObject.SetActive(false);
+
+        }
+        else { OtherPlayerActionPrefab9.gameObject.SetActive(true); }
 
 
 

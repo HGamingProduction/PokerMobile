@@ -19,6 +19,11 @@ public class AvaibleOnTableScript : MonoBehaviour
     public GameObject PrefabPeopleOther2;
     public GameObject PrefabPeopleOther3;
     public GameObject PrefabPeopleOther4;
+    public GameObject PrefabPeopleOther5;
+    public GameObject PrefabPeopleOther6;
+    public GameObject PrefabPeopleOther7;
+    public GameObject PrefabPeopleOther8;
+    public GameObject PrefabPeopleOther9;
     // Start is called before the first frame update
     void Start ()
     {
@@ -125,5 +130,111 @@ public class AvaibleOnTableScript : MonoBehaviour
         }
 
 
+
+        if (JoinTable.AvaibleTableOther5 == 0)
+        {
+
+            PrefabPeopleOther5.gameObject.SetActive(false);
+
+
+
+
+        }
+
+
+        if (JoinTable.AvaibleTableOther5 == 1)
+        {
+
+            PrefabPeopleOther5.gameObject.SetActive(true);
+
+
+
+
+        }
+
+
+        if (JoinTable.AvaibleTableOther6 == 0)
+        {
+
+            PrefabPeopleOther6.gameObject.SetActive(false);
+
+
+
+
+        }
+
+
+        if (JoinTable.AvaibleTableOther6 == 1)
+        {
+
+            PrefabPeopleOther6.gameObject.SetActive(true);
+
+
+
+
+        }
+
+        if (JoinTable.AvaibleTableOther7 == 0)
+        {
+
+            PrefabPeopleOther7.gameObject.SetActive(false);
+
+
+
+
+        }
+
+
+        if (JoinTable.AvaibleTableOther7 == 1)
+        {
+
+            PrefabPeopleOther7.gameObject.SetActive(true);
+
+
+
+
+        }
+
+        if (JoinTable.AvaibleTableOther8 == 0)
+        {
+
+            PrefabPeopleOther8.gameObject.SetActive(false);
+
+
+
+
+        }
+
+
+        if (JoinTable.AvaibleTableOther8 == 1)
+        {
+
+            PrefabPeopleOther8.gameObject.SetActive(true);
+
+
+
+
+        }
+
+        if (JoinTable.AvaibleTableOther9 == 0)
+        {
+
+            PrefabPeopleOther9.gameObject.SetActive(false);
+
+
+
+
+        }
+
+
+        if (JoinTable.AvaibleTableOther9 == 1)
+        {
+
+            PrefabPeopleOther9.gameObject.SetActive(true);
+
+
+
+
+        }
     }
 }

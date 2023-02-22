@@ -19,6 +19,12 @@ public class ChangeNameScript : MonoBehaviour
     [SerializeField] private Text NameOtherChange;
     [SerializeField] private Text NameOtherChange2;
     [SerializeField] private Text NameOtherChange3;
+    [SerializeField] private Text NameOtherChange4;
+    [SerializeField] private Text NameOtherChange5;
+    [SerializeField] private Text NameOtherChange6;
+    [SerializeField] private Text NameOtherChange7;
+    [SerializeField] private Text NameOtherChange8;
+    [SerializeField] private Text NameOtherChange9;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +32,12 @@ public class ChangeNameScript : MonoBehaviour
         NameOtherChange.text = JoinTable.OtherName;
         NameOtherChange2.text = JoinTable.OtherName2;
         NameOtherChange3.text = JoinTable.OtherName3;
+        NameOtherChange4.text = JoinTable.OtherName4;
+        NameOtherChange5.text = JoinTable.OtherName5;
+        NameOtherChange6.text = JoinTable.OtherName6;
+        NameOtherChange7.text = JoinTable.OtherName7;
+        NameOtherChange8.text = JoinTable.OtherName8;
+        NameOtherChange9.text = JoinTable.OtherName9;
     }
 
     // Update is called once per frame
@@ -35,5 +47,11 @@ public class ChangeNameScript : MonoBehaviour
         NameOtherChange.text = JoinTable.OtherName;
         NameOtherChange2.text = JoinTable.OtherName2;
         NameOtherChange3.text = JoinTable.OtherName3;
+        NameOtherChange4.text = JoinTable.OtherName4;
+        NameOtherChange5.text = JoinTable.OtherName5;
+        NameOtherChange6.text = JoinTable.OtherName6;
+        NameOtherChange7.text = JoinTable.OtherName7;
+        NameOtherChange8.text = JoinTable.OtherName8;
+        NameOtherChange9.text = JoinTable.OtherName9;
     }
 }
