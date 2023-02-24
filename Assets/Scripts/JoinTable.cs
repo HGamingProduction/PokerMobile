@@ -131,7 +131,7 @@ public class JoinTable : MonoBehaviour
     public static string GlobalCardAction3;
     public static string GlobalCardAction4;
     public static int CountPlayers;
-
+    public static int PROVERKA;
     /*public static string responce;*/
     private static void Ws_OnMessage(object sender, MessageEventArgs e)
     {
@@ -147,7 +147,7 @@ public class JoinTable : MonoBehaviour
         var currencyy = JsonConvert.DeserializeObject<Action>(responce11);
         var currencyyy = JsonConvert.DeserializeObject<Root19>(responce1111);
 
-        var currency20 = JsonConvert.DeserializeObject<Game20>(responce1111);
+        var currency20 = JsonConvert.DeserializeObject<Root20>(responce22);
 
 
 
@@ -357,15 +357,15 @@ public class JoinTable : MonoBehaviour
             MinRaiseBet = currency.seats[IdOther].raiseMinBet;
 
           
-
-            if (currency20.state == "COMPLETED")
+            
+            /*if (currency20.action.gameState != null)
             {
 
-                Debug.Log("123123123123123");
+                Debug.Log(currency20.action.gameState);
 
 
             }
-            else { Debug.Log(currency20.state); }
+            else { Debug.Log("123123123123123"); }*/
 
         }
         if (currency.msg == "new game at the table #"+ IdText +" started")
@@ -396,6 +396,21 @@ public class JoinTable : MonoBehaviour
 
 
                 MyGlobalAvaibleActions = 1;
+                int p = 0;
+
+                if (currency.seats[IdOther].availableActions[p] != null)
+                {
+                    for (p = 0; p < 3; p++)
+                    {
+
+
+                        UpdateGameButtonScript.availableYourActions[p] = currency.seats[IdOther].availableActions[p];
+
+
+
+
+                    }
+                }
 
 
 
@@ -555,6 +570,10 @@ public class JoinTable : MonoBehaviour
         if (currencyy.eventType == "start_game")
         {
 
+
+            PROVERKA = 1;
+
+
             GlobalCardAction = "FirstException";
             GlobalCardAction2 = "SecondException2";
             GlobalCardAction3 = "SecondException2";
@@ -661,8 +680,9 @@ public class JoinTable : MonoBehaviour
         }
         if (currency.eventType == "end_game")
         {
-
-
+            
+                
+            
             GameWinner = currency.msg;
 
             /*JoinTable.WinsMessage = Convert.ToString(GameWinner);*/
@@ -929,29 +949,27 @@ public class JoinTable : MonoBehaviour
         ggg9 = currency.seats[aaa9].userId;
 
 
-
-
-
+        
 
 
         if (currency.seats[i].availableActions == null)
         {
 
             MyGlobalAvaibleActions = 0;
-
+           
         }
         if (currency.seats[i].availableActions != null)
         {
 
-
+            Debug.Log("IA MOGY XODIIIIITEEEEEE");
             MyGlobalAvaibleActions = 1;
             int p = 0;
+
             if (currency.seats[IdOther].availableActions[p] != null)
             {
-
                 for (p = 0; p < 3; p++)
                 {
-                  
+
 
                     UpdateGameButtonScript.availableYourActions[p] = currency.seats[IdOther].availableActions[p];
 
@@ -959,10 +977,13 @@ public class JoinTable : MonoBehaviour
 
 
                 }
+
             }
 
-
         }
+      
+
+
 
         if (currency.seats[a].availableActions == null)
         {
@@ -1483,7 +1504,7 @@ public class JoinTable : MonoBehaviour
 
 
         FifthCard = currency11.game.board[4];
-
+        AvaibleActionsOnTable();
 
         var currency111 = JsonConvert.DeserializeObject<RootAction>(responce11);
 
@@ -1519,9 +1540,17 @@ public class JoinTable : MonoBehaviour
 
     public static void AvaibleActionsOnTable()
     {
+        var currencyy = JsonConvert.DeserializeObject<Action>(responce11);
+        var currency = JsonConvert.DeserializeObject<Root1>(responce11);
 
-      
 
+        if (currencyy.game.state == "COMPLETED")
+        {
+            Debug.Log(currency.seats[IdOther].userName);
+
+            
+
+        }
 
 
 
@@ -1943,7 +1972,7 @@ public class Root20
     public string eventType { get; set; }
     public string msg { get; set; }
     public List<Seat> seats { get; set; }
-    public Game game { get; set; }
+    public Game? game { get; set; }
     public Action action { get; set; }
 }
 
