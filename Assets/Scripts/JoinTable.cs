@@ -342,7 +342,14 @@ public class JoinTable : MonoBehaviour
 
         }
 
+        
+        
 
+
+
+
+
+        
 
         if (currency.eventType == "action")
         {
@@ -352,14 +359,9 @@ public class JoinTable : MonoBehaviour
             MyName = currency.seats[IdOther].userName;
 
 
-
-
-
-
-            MinRaiseBet = currency.seats[IdOther].raiseMinBet;
-
-            Debug.Log("��������� ������");
         }
+
+
         if (currency.msg == "new game at the table #"+ IdText +" started")
         {
             
