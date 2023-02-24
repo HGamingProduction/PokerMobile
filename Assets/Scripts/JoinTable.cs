@@ -147,7 +147,7 @@ public class JoinTable : MonoBehaviour
         var currencyy = JsonConvert.DeserializeObject<Action>(responce11);
         var currencyyy = JsonConvert.DeserializeObject<Root19>(responce1111);
 
-       
+        var currency20 = JsonConvert.DeserializeObject<Game20>(responce1111);
 
 
 
@@ -342,14 +342,7 @@ public class JoinTable : MonoBehaviour
 
         }
 
-        
-        
 
-
-
-
-
-        
 
         if (currency.eventType == "action")
         {
@@ -359,9 +352,22 @@ public class JoinTable : MonoBehaviour
             MyName = currency.seats[IdOther].userName;
 
 
+         
+
+            MinRaiseBet = currency.seats[IdOther].raiseMinBet;
+
+          
+
+            if (currency20.state == "COMPLETED")
+            {
+
+                Debug.Log("123123123123123");
+
+
+            }
+            else { Debug.Log(currency20.state); }
+
         }
-
-
         if (currency.msg == "new game at the table #"+ IdText +" started")
         {
             
@@ -628,7 +634,7 @@ public class JoinTable : MonoBehaviour
             MinRaiseBet = currency.seats[IdOther].raiseMinBet;
             VisiblePlayer();
 
-
+           
 
         }
 
@@ -923,6 +929,11 @@ public class JoinTable : MonoBehaviour
         ggg9 = currency.seats[aaa9].userId;
 
 
+
+
+
+
+
         if (currency.seats[i].availableActions == null)
         {
 
@@ -934,7 +945,21 @@ public class JoinTable : MonoBehaviour
 
 
             MyGlobalAvaibleActions = 1;
+            int p = 0;
+            if (currency.seats[IdOther].availableActions[p] != null)
+            {
 
+                for (p = 0; p < 3; p++)
+                {
+                  
+
+                    UpdateGameButtonScript.availableYourActions[p] = currency.seats[IdOther].availableActions[p];
+
+
+
+
+                }
+            }
 
 
         }
@@ -1518,7 +1543,7 @@ public class JoinTable : MonoBehaviour
         int l = 0;
         while (l < setUpId2)
         {
-            if (currency.seats[l].userId == null || IdOther == l)
+            if (currency.seats[IdOtherGamer].userId == null || IdOther == l)
             {
 
 
@@ -1888,4 +1913,57 @@ public class Winner : BestCombination
     public BestCombination bestCombination { get; set; }
     public int userId { get; set; }
     public int chips { get; set; }
+}
+
+
+
+
+
+public class Action20
+{
+    public int id { get; set; }
+    public int userId { get; set; }
+    public int gameId { get; set; }
+    public string type { get; set; }
+    public int bet { get; set; }
+    public string gameState { get; set; }
+}
+
+public class Game20
+{
+    public int id { get; set; }
+    public int pokerTableId { get; set; }
+    public string state { get; set; }
+    public List<string> board { get; set; }
+    public int bank { get; set; }
+}
+
+public class Root20
+{
+    public string eventType { get; set; }
+    public string msg { get; set; }
+    public List<Seat> seats { get; set; }
+    public Game game { get; set; }
+    public Action action { get; set; }
+}
+
+public class Seat20
+{
+    public int? userId { get; set; }
+    public int pokerTableId { get; set; }
+    public int number { get; set; }
+    public List<string> pocket { get; set; }
+    public int current_bet { get; set; }
+    public bool isDealer { get; set; }
+    public bool IsSmallBlind { get; set; }
+    public bool isBigBlind { get; set; }
+    public bool isCurrent { get; set; }
+    public bool isFold { get; set; }
+    public string userName { get; set; }
+    public int? userChips { get; set; }
+    public int raiseMinBet { get; set; }
+    public int callBet { get; set; }
+    public object lastActionType { get; set; }
+    public object lastActionBet { get; set; }
+    public List<string> availableActions { get; set; }
 }

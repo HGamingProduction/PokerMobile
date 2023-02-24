@@ -45,6 +45,14 @@ public class FoldButton : MonoBehaviour
 
         /*var currency = JsonConvert.DeserializeObject<FoldTableAssetsMain>(responcee);
         Debug.Log(currency.msg);*/
+
+
+        UpdateGameButtonScript.availableYourActions[0] = null;
+        UpdateGameButtonScript.availableYourActions[1] = null;
+        UpdateGameButtonScript.availableYourActions[2] = null;
+
+
+
         Glob.buttonCallBool = false;
         Glob.buttonRaiseBool = false;
         Glob.buttonFoldBool = false;

@@ -28,8 +28,16 @@ public class UpdateGameButtonScript : MonoBehaviour
 
 
 
-        /*for (int i = 0; i < 3; i++)
+      
+    }
+
+    void Update()
+    {
+        for (int i = 0; i < 3; i++)
         {
+
+
+
             switch (availableYourActions[i])
             {
                 case "CALL":
@@ -44,13 +52,10 @@ public class UpdateGameButtonScript : MonoBehaviour
                 case "CHECK":
                     Glob.buttonCheckBool = true;
                     break;
-            }
-        }*/
-    }
 
-    void Update()
-    {
-        /*if (Glob.buttonFoldBool == true)
+            }
+        }
+        if (Glob.buttonFoldBool == true)
         {
             ButtonFolds.interactable = true;
         }
@@ -81,6 +86,11 @@ public class UpdateGameButtonScript : MonoBehaviour
         else
         {
             ButtonRaises.interactable = false;
-        }*/
+        }
+
+
+
+
+
     }
 }

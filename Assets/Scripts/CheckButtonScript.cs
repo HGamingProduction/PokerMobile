@@ -43,6 +43,10 @@ public class CheckButtonScript : MonoBehaviour
 
         MainWebSocket.ws.Send(message);
 
+        UpdateGameButtonScript.availableYourActions[0] = null;
+        UpdateGameButtonScript.availableYourActions[1] = null;
+        UpdateGameButtonScript.availableYourActions[2] = null;
+
         Glob.buttonCallBool = false;
         Glob.buttonRaiseBool = false;
         Glob.buttonFoldBool = false;
