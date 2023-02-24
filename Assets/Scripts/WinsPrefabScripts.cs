@@ -33,7 +33,7 @@ public class WinsPrefabScripts : MonoBehaviour
     public Sprite CardsHearts;
     public Sprite CardsSpades;
 
-    public static int WinsPeople = 10;
+    public static int WinsPeople = 0;
     public static int?[] IdPeopleOnTable = new int?[10];
     public static string?[] UserNamePeopleOnTable = new string?[10];
     public static string?[] CardsOnTable = new string?[5];
@@ -45,95 +45,11 @@ public class WinsPrefabScripts : MonoBehaviour
 
     void Start()
     {
-        // Slepoi test
-        IdPeopleOnTable[0] = 2;
-        IdPeopleOnTable[1] = 0;
-        IdPeopleOnTable[2] = 13;
-        IdPeopleOnTable[3] = 43;
-        IdPeopleOnTable[4] = 63;
-        IdPeopleOnTable[5] = 12;
-        IdPeopleOnTable[6] = 55;
-        IdPeopleOnTable[7] = 23;
-        IdPeopleOnTable[8] = 17;
-        IdPeopleOnTable[9] = 22;
+        
+    }
 
-        UserNamePeopleOnTable[0] = "User0[2]";
-        UserNamePeopleOnTable[1] = "User1[0]";
-        UserNamePeopleOnTable[2] = "User2[13]";
-        UserNamePeopleOnTable[3] = "User3[43]";
-        UserNamePeopleOnTable[4] = "User4[63]";
-        UserNamePeopleOnTable[5] = "User5[12]";
-        UserNamePeopleOnTable[6] = "User6[55]";
-        UserNamePeopleOnTable[7] = "User7[23]";
-        UserNamePeopleOnTable[8] = "User8[17]";
-        UserNamePeopleOnTable[9] = "User9[22]";
-
-        CardsOnTable[0] = "2c";
-        CardsOnTable[1] = "2c";
-        CardsOnTable[2] = "2c";
-        CardsOnTable[3] = "2c";
-        CardsOnTable[4] = "2c";
-
-        BestCombinationsWinsPersonal[0] = "2c";
-        BestCombinationsWinsPersonal[1] = "2c";
-        BestCombinationsWinsPersonal[2] = "2c";
-        BestCombinationsWinsPersonal[3] = "2c";
-        BestCombinationsWinsPersonal[4] = "2c";
-        BestCombinationsWinsPersonal[5] = "2c";
-        BestCombinationsWinsPersonal[6] = "2c";
-        BestCombinationsWinsPersonal[7] = "2c";
-        BestCombinationsWinsPersonal[8] = "2c";
-        BestCombinationsWinsPersonal[9] = "2c";
-
-
-        /*for(int i = 0; i < WinsPeople; i++)
-        {
-            int jj = 0;
-            for (int j = 0; j < 5; j++)
-            {
-                WinsPrefabScripts.BestCombinationsWinsPersonal[i * 5 + jj] = Winner[i].bestCombination[jj];
-                jj++;
-            }
-            jj = 0;
-        }
-        for(int j = 0; j < 50; j++)
-        {
-            Debug.Log(WinsPrefabScripts.BestCombinationsWinsPersonal[j]+j);
-        }*/
-
-        PeopleWinsCombinations[0] = "Pair";
-        PeopleWinsCombinations[1] = "Pair";
-
-        WinnersOnTable[0] = 13;
-        WinnersOnTable[1] = 55;
-
-        WinnersChips[0] = 10;
-        WinnersChips[1] = 11;
-
-        PeopleCardsOnTable[0] = "2c";
-        PeopleCardsOnTable[1] = "2c";
-        PeopleCardsOnTable[2] = "2c";
-        PeopleCardsOnTable[3] = "2c";
-        PeopleCardsOnTable[4] = "2c";
-        PeopleCardsOnTable[5] = "2c";
-        PeopleCardsOnTable[6] = "2c";
-        PeopleCardsOnTable[7] = "2c";
-        PeopleCardsOnTable[8] = "2c";
-        PeopleCardsOnTable[9] = "2c";
-        PeopleCardsOnTable[10] = "2c";
-        PeopleCardsOnTable[11] = "2c";
-        PeopleCardsOnTable[12] = "2c";
-        PeopleCardsOnTable[13] = "2c";
-        PeopleCardsOnTable[14] = "2c";
-        PeopleCardsOnTable[15] = "2c";
-        PeopleCardsOnTable[16] = "2c";
-        PeopleCardsOnTable[17] = "2c";
-        PeopleCardsOnTable[18] = "2c";
-        PeopleCardsOnTable[19] = "2c";
-
-
-
-        //CODE
+    void Update()
+    {
         GameObject _canvas = Canvas;
         rectTransform = _canvas.GetComponent<RectTransform>();
 
@@ -142,6 +58,17 @@ public class WinsPrefabScripts : MonoBehaviour
             int ii = WinsPeople - 4;
             rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x + (120 * ii), rectTransform.sizeDelta.y);
         }
+
+        Player1.SetActive(false);
+        Player2.SetActive(false);
+        Player3.SetActive(false);
+        Player4.SetActive(false);
+        Player5.SetActive(false);
+        Player6.SetActive(false);
+        Player7.SetActive(false);
+        Player8.SetActive(false);
+        Player9.SetActive(false);
+        Player10.SetActive(false);
 
         switch (WinsPeople)
         {
@@ -224,12 +151,12 @@ public class WinsPrefabScripts : MonoBehaviour
         }
 
         string? cardText = null;
-        string? Suit = null;
+        string? Suits = null;
 
-        GameObject CardsOnTableObj = GameObject.Find("CardsOnTable");
-        for (int i = 0; i <= 4; i++)
+        GameObject CardsOnTableObj = GameObject.Find("CardsOnTabless");
+        for (int i = 0; i < 5; i++)
         {
-            Transform childObjectViewCardImageTable = CardsOnTableObj.transform.Find("ViewCardImage" + (i+1));
+            Transform childObjectViewCardImageTable = CardsOnTableObj.transform.Find("ViewCardImages" + (i + 1));
 
             Transform childObjectLightningImageCardTable = childObjectViewCardImageTable.transform.Find("LightningImage");
             Transform childObjectTextCardTable = childObjectViewCardImageTable.transform.Find("NumberCardText");
@@ -241,6 +168,8 @@ public class WinsPrefabScripts : MonoBehaviour
             Text textingCardTable = childObjectTextCardTable.GetComponent<Text>();
             Image imagingCardTable = childObjectImageCardTable.GetComponent<Image>();
 
+
+            imagingLightningImageCardTable.color = new Color32(0, 0, 0, 0);
             textingIdCardTable.text = CardsOnTable[i];
             if (CardsOnTable[i] != null)
             {
@@ -259,9 +188,9 @@ public class WinsPrefabScripts : MonoBehaviour
                 textingCardTable.text = cardText;
                 foreach (char v in CardsOnTable[i])
                 {
-                    Suit = Convert.ToString(v);
+                    Suits = Convert.ToString(v);
                 }
-                switch (Suit)
+                switch (Suits)
                 {
                     case "c":
                         imagingCardTable.sprite = CardsClubs;
@@ -289,6 +218,7 @@ public class WinsPrefabScripts : MonoBehaviour
                 {
                     imagingLightningImageCardTable.color = new Color32(255, 196, 0, 166);
                 }
+                
             }
 
         }
@@ -340,13 +270,16 @@ public class WinsPrefabScripts : MonoBehaviour
             Image imagingCard2 = childObjectImageCard2.GetComponent<Image>();
             Image imagingLightningImageCardTable2 = childObjectLightningImageCard2.GetComponent<Image>();
 
+
+            imagingLightningImageCardTable1.color = new Color32(0, 0, 0, 0);
+            imagingLightningImageCardTable2.color = new Color32(0, 0, 0, 0);
             textingIdPeople.text = Convert.ToString(IdPeopleOnTable[i]);
             textingNameText.text = UserNamePeopleOnTable[i];
-            
+
             textingCardID1.text = PeopleCardsOnTable[i * 2];
             textingCardID2.text = PeopleCardsOnTable[i + (i + 1)];
 
-            if (PeopleCardsOnTable[i*2] != null)
+            if (PeopleCardsOnTable[i * 2] != null)
             {
                 foreach (char v in PeopleCardsOnTable[i * 2])
                 {
@@ -363,21 +296,25 @@ public class WinsPrefabScripts : MonoBehaviour
                 textingCard1.text = cardText;
                 foreach (char v in PeopleCardsOnTable[i * 2])
                 {
-                    Suit = Convert.ToString(v);
+                    Suits = Convert.ToString(v);
                 }
-                switch (Suit)
+                switch (Suits)
                 {
                     case "c":
                         imagingCard1.sprite = CardsClubs;
+                        imagingCard1.color = new Color32(255, 255, 255, 255);
                         break;
                     case "d":
                         imagingCard1.sprite = CardsDiamond;
+                        imagingCard1.color = new Color32(255, 255, 255, 255);
                         break;
                     case "h":
                         imagingCard1.sprite = CardsHearts;
+                        imagingCard1.color = new Color32(255, 255, 255, 255);
                         break;
                     case "s":
                         imagingCard1.sprite = CardsSpades;
+                        imagingCard1.color = new Color32(255, 255, 255, 255);
                         break;
                 }
             }
@@ -387,7 +324,7 @@ public class WinsPrefabScripts : MonoBehaviour
                 imagingCard1.color = new Color32(0, 0, 0, 0);
             }
 
-            if (PeopleCardsOnTable[i+(i+1)] != null)
+            if (PeopleCardsOnTable[i + (i + 1)] != null)
             {
                 foreach (char v in PeopleCardsOnTable[i + (i + 1)])
                 {
@@ -404,9 +341,9 @@ public class WinsPrefabScripts : MonoBehaviour
                 textingCard2.text = cardText;
                 foreach (char v in PeopleCardsOnTable[i + (i + 1)])
                 {
-                    Suit = Convert.ToString(v);
+                    Suits = Convert.ToString(v);
                 }
-                switch (Suit)
+                switch (Suits)
                 {
                     case "c":
                         imagingCard2.sprite = CardsClubs;
@@ -432,6 +369,7 @@ public class WinsPrefabScripts : MonoBehaviour
                 imagingCard2.color = new Color32(0, 0, 0, 0);
             }
 
+            
             for (int j = 0; j < WinsPeople; j++)
             {
                 if (WinnersOnTable[j] == IdPeopleOnTable[i])
@@ -451,12 +389,12 @@ public class WinsPrefabScripts : MonoBehaviour
                             imagingLightningImageCardTable2.color = new Color32(255, 196, 0, 166);
                         }
                     }
-
+                    break;
 
                 }
                 else
                 {
-                    textingChipsText.text = null; 
+                    textingChipsText.text = null;
                     textingCombinations.text = null;
                     imagingLightningUser.color = new Color32(0, 0, 0, 0);
                 }

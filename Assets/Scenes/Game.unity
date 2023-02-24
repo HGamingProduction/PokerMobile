@@ -3577,10 +3577,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   imagecard: {fileID: 0}
   imagecardClon: {fileID: 0}
-  CardsClubs: {fileID: 0}
-  CardsDiamond: {fileID: 0}
-  CardsHearts: {fileID: 0}
-  CardsSpades: {fileID: 0}
+  CardsClubs: {fileID: 21300000, guid: 25a9720e06232f84284235843a7f3171, type: 3}
+  CardsDiamond: {fileID: 21300000, guid: c7463bc7280327b40872b4bbec27703f, type: 3}
+  CardsHearts: {fileID: 21300000, guid: 741ff27549202814ebc25326ac39f8d8, type: 3}
+  CardsSpades: {fileID: 21300000, guid: 6bdebe7b7ee9d8f4499d92d60ea38ca3, type: 3}
   textcard: {fileID: 0}
   textcardClon: {fileID: 0}
 --- !u!114 &699572868
@@ -3607,10 +3607,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0bdd34ad0b4e1f40bfc7c48fadf9fb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardsClubs: {fileID: 0}
-  CardsDiamond: {fileID: 0}
-  CardsHearts: {fileID: 0}
-  CardsSpades: {fileID: 0}
+  CardsClubs: {fileID: 21300000, guid: 25a9720e06232f84284235843a7f3171, type: 3}
+  CardsDiamond: {fileID: 21300000, guid: c7463bc7280327b40872b4bbec27703f, type: 3}
+  CardsHearts: {fileID: 21300000, guid: 741ff27549202814ebc25326ac39f8d8, type: 3}
+  CardsSpades: {fileID: 21300000, guid: 6bdebe7b7ee9d8f4499d92d60ea38ca3, type: 3}
   TableCardImage: {fileID: 0}
   TableCardImage1: {fileID: 0}
   TableCardImage2: {fileID: 0}
@@ -3719,6 +3719,10 @@ MonoBehaviour:
   Player8: {fileID: 917946755}
   Player9: {fileID: 917946754}
   Player10: {fileID: 917946753}
+  CardsClubs: {fileID: 21300000, guid: 25a9720e06232f84284235843a7f3171, type: 3}
+  CardsDiamond: {fileID: 21300000, guid: c7463bc7280327b40872b4bbec27703f, type: 3}
+  CardsHearts: {fileID: 21300000, guid: 741ff27549202814ebc25326ac39f8d8, type: 3}
+  CardsSpades: {fileID: 21300000, guid: 6bdebe7b7ee9d8f4499d92d60ea38ca3, type: 3}
 --- !u!1 &723194755
 GameObject:
   m_ObjectHideFlags: 0
@@ -4727,6 +4731,10 @@ PrefabInstance:
     - target: {fileID: 1946372614733091388, guid: 15036eaae0571f545914a7deea0d1091, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0.000000059604645
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482852714404477515, guid: 15036eaae0571f545914a7deea0d1091, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4478123913996698986, guid: 15036eaae0571f545914a7deea0d1091, type: 3}
       propertyPath: m_AnchorMax.x

@@ -12,6 +12,8 @@ using UnityEngine.UI;
 using Newtonsoft.Json;
 using System.Net.Http;
 using UnityEngine.SceneManagement;
+using System;
+using System.Collections.Generic;
 
 
 public class JoinTable : MonoBehaviour
@@ -680,8 +682,8 @@ public class JoinTable : MonoBehaviour
         }
         if (currency.eventType == "end_game")
         {
-            
-                
+
+            WinsActionsOnTable();
             
             GameWinner = currency.msg;
 
@@ -1537,6 +1539,44 @@ public class JoinTable : MonoBehaviour
         
 
     }
+    public static void WinsActionsOnTable()
+    {
+        var currencyy = JsonConvert.DeserializeObject<Action>(responce11);
+        var currency = JsonConvert.DeserializeObject<RootAction>(responce11);
+
+        for (int i = 0; i < 10; i++)
+        {
+            WinsPrefabScripts.WinnersOnTable[i] = null;
+            WinsPrefabScripts.WinnersChips[i] = null;
+            WinsPrefabScripts.PeopleWinsCombinations[i] = null;
+            
+        }
+        for (int j = 0; j < 50; j++)
+        {
+            WinsPrefabScripts.BestCombinationsWinsPersonal[j] = null;
+        }
+
+        int sasa = currency.winners.Count;
+        for (int i = 0; i < sasa; i++)
+        {
+            WinsPrefabScripts.WinnersOnTable[i] = currency.winners[i].userId;
+            WinsPrefabScripts.WinnersChips[i] = currency.winners[i].chips;
+            WinsPrefabScripts.PeopleWinsCombinations[i] = currency.winners[i].bestCombination.name;
+
+
+            int sasa2 = currency.winners[i].bestCombination.cards.Count;
+            for (int ii = 0; ii < 10; ii++)
+            {
+                int jj = 0;
+                for (int j = 0; j < sasa2; j++)
+                {
+                    WinsPrefabScripts.BestCombinationsWinsPersonal[ii * 5 + jj] = currency.winners[i].bestCombination.cards[j]; ;
+                    jj++;
+                }
+                jj = 0;
+            }
+        }
+    }
 
     public static void AvaibleActionsOnTable()
     {
@@ -1546,18 +1586,38 @@ public class JoinTable : MonoBehaviour
 
         if (currencyy.game.state == "COMPLETED")
         {
-            Debug.Log(currency.seats[IdOther].userName);
+            for (int i = 0; i < 10; i++)
+            {
+                WinsPrefabScripts.IdPeopleOnTable[i] = null;
+                WinsPrefabScripts.UserNamePeopleOnTable[i] = null;
+            }
+            for (int i = 0; i < 5; i++)
+            {
+                WinsPrefabScripts.CardsOnTable[i] = null;
+            }
+            WinsPrefabScripts.WinsPeople = 0;
 
-            
 
+            for (int i = 0; i <= CountPlayers; i++)
+            {
+                if (currency.seats[i].userId != null)
+                {
+                    WinsPrefabScripts.IdPeopleOnTable[i] = currency.seats[i].userId;
+                    WinsPrefabScripts.UserNamePeopleOnTable[i] = currency.seats[i].userName;
+                    WinsPrefabScripts.WinsPeople++;
+                    WinsPrefabScripts.PeopleCardsOnTable[i*2] = currency.seats[i].pocket[0];
+                    WinsPrefabScripts.PeopleCardsOnTable[i*2+1] = currency.seats[i].pocket[1];
+
+                    WinsPrefabScripts.CardsOnTable[0] = currencyy.game.board[0];
+                    WinsPrefabScripts.CardsOnTable[1] = currencyy.game.board[1];
+                    WinsPrefabScripts.CardsOnTable[2] = currencyy.game.board[2];
+                    WinsPrefabScripts.CardsOnTable[3] = currencyy.game.board[3];
+                    WinsPrefabScripts.CardsOnTable[4] = currencyy.game.board[4];
+
+                }
+            }
         }
-
-
-
-
-
     }
-
     public static void VisiblePlayer()
     {
         var currency = JsonConvert.DeserializeObject<Root1>(responce11);
@@ -1777,6 +1837,7 @@ public class JoinTable : MonoBehaviour
 
 
     }
+
     // Start is called before the first frame update
     public async void JoinTablePoker()
     {
@@ -1801,7 +1862,6 @@ public class JoinTable : MonoBehaviour
         Debug.Log(TextArr);
         SceneManager.LoadScene(2);
     }
-   
 
 }
 public class JoinTableAssets
